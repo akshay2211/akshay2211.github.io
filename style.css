@@ -1,0 +1,10 @@
+.center{
+    margin: auto!important;
+    letter-spacing: 2px!important;
+    text-align: center!important;
+    font-weight: 200!important;
+}
+body{
+    font-family: 'Poppins', sans-serif!important;
+    letter-spacing: 2px!important;
+}
