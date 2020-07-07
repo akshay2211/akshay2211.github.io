@@ -31,6 +31,12 @@
     desc:"With MusicWave represent your Sound in a gradient colored Visualization.",
     img:"https://raw.githubusercontent.com/akshay2211/MusicWave/master/media/musicwave_web.png",
     link:"https://github.com/akshay2211/MusicWave"
+},
+{
+    title:"Ariana",
+    desc:"Provide Multiple Gradients in ImageViews and Texts",
+    img:"https://raw.githubusercontent.com/akshay2211/Ariana/master/media/web_256.png",
+    link:"https://github.com/akshay2211/Ariana"
 }
 ]
 
