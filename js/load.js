@@ -110,7 +110,11 @@ text += data;
 
  loadSocialIcons()
  loadJSON()
- console.log("hello some logs");
+
+/*
+ *<a class="github-button" href="https://github.com/akshay2211/PixImagePicker" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star akshay2211/PixImagePicker on GitHub">Star</a>
+ *<a class="github-button" href="https://github.com/akshay2211/PixImagePicker/fork" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork akshay2211/PixImagePicker on GitHub">Fork</a>
+ */
 
 
 
