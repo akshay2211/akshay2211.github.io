@@ -8,3 +8,20 @@ body{
     font-family: 'Poppins', sans-serif!important;
     letter-spacing: 2px!important;
 }
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+
+}
+h1 {
+    text-align: center !important;
+    margin-top: 50px !important;
+    font-weight: 200 !important;
+}
+.title-desc {
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+    font-weight: 200 !important;
+    max-width: 400px !important;
+      justify-content: center !important;
+}
