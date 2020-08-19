@@ -101,7 +101,7 @@ text += data;
  function loadSocialIcons(){
      var socialtext = ""
      for (x in socialtags) {
-         var data  = `<a class="center" href="`+socialtags[x].link+`"> <img class="pure-img pure-u-1-5 center" style="padding: 5px!important;width: 36px;" src="`+socialtags[x].img+`"></a>`
+         var data  = `<a class="center" href="`+socialtags[x].link+`"> <img class="center" style="padding: 5px!important;width: 40px;" src="`+socialtags[x].img+`"></a>`
          socialtext +=data
      }
      document.getElementById("sociallist").innerHTML = socialtext;
