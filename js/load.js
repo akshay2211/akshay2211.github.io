@@ -109,7 +109,7 @@ text += data;
 
 
  loadSocialIcons()
- loadJSON()
+ //loadJSON()
 
 /*
  *<a class="github-button" href="https://github.com/akshay2211/PixImagePicker" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star akshay2211/PixImagePicker on GitHub">Star</a>
