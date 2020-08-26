@@ -1,5 +1,6 @@
-body{margin:0!important;font-family:Poppins,sans-serif!important;letter-spacing:2px!important;color:#fff;background:#1d1e21;font-weight:200; margin: auto!important}
+body{transition: all 0.5s ease;margin:0!important;font-family:Poppins,sans-serif!important;letter-spacing:2px!important;color:#fff;background:#1d1e21;font-weight:200; margin: auto!important}
 h1{text-align:center!important;margin-top:50px!important;font-weight:100!important;font-size:3em}
+*{margin:0px;padding:0px;}
 .center{margin:auto!important;text-align:center!important}
 .vertical-center{min-height:100%;min-height:100vh;display:flex;align-items:center}
 .spacing{margin-top:5%;margin-top:5vh;margin-bottom:20%;margin-bottom:20vh}
