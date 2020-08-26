@@ -14,3 +14,4 @@ h1{text-align:center!important;margin-top:50px!important;font-weight:100!importa
 .resume-img{margin-right: 5px; display: block; -moz-box-sizing: border-box; box-sizing: border-box; width: 30px; height: 30px; background: url(../img/download-cloud-light.svg) no-repeat; }
 button{  background: url(../img/sun.svg) no-repeat;  color: transparent;  box-shadow: none;  border: none;  width: 50px;  height: 50px;  background-position: center;  position: absolute;  cursor: pointer;  }
 .light-mode button{background: url(../img/moon.svg) no-repeat; background-position: center;}
+button:focus {outline:0;}
