@@ -7,7 +7,7 @@ import io.ak1.plugins.*
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         configureRouting()
-        configureTemplating()
-        configureSerialization()
+        //configureTemplating()
+        //configureSerialization()
     }.start(wait = true)
 }
