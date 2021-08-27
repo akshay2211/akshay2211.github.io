@@ -25,8 +25,8 @@ jobs:
         run: ./gradlew installDist
 
       - name: Deploy artifacts
-        run: /build/install/io.ak1.akshay2211/bin/io.ak1.akshay2211
-
+        run: ./build/install/io.ak1.akshay2211/bin/io.ak1.akshay2211
+        
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
