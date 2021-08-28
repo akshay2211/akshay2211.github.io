@@ -1,0 +1,21 @@
+body{transition: all 0.5s ease;margin:0!important;font-family:Poppins,sans-serif!important;letter-spacing:2px!important;color:#fff;background:#1d1e21;font-weight:200; margin: auto!important}
+h1{text-align:center!important;margin-top:50px!important;font-weight:100!important;font-size:3em}
+*{margin:0px;padding:0px;}
+a{ color:#ffffff;}
+.center{margin:auto!important;text-align:center!important}
+.vertical-center{min-height:100%;min-height:100vh;display:flex;align-items:center}
+.spacing{margin-top:5%;margin-top:5vh;margin-bottom:20%;margin-bottom:20vh}
+.title-desc{margin-top:20px!important;margin-bottom:30px!important;max-width:450px!important;font-weight:200;font-size:18px}
+.resume-text{position: static;margin-top: -60px;font-weight: 100;letter-spacing: 5px;font-size: 16px;margin-left: auto;margin-right: 10px;text-align: right; display:none;}
+.resume-text a{color:inherit; text-decoration: none; display: flex; padding:12px;}
+.resume-text a img{ padding-right:14px;}
+@media screen and (max-width: 576px) {.resume-text a{justify-content: center;}}
+@media screen and (min-width: 575px) {.resume-text a{justify-content: flex-end;}}
+.light-mode { color:#1d1e21!important;background:#fff!important;}
+.light-mode .resume-img{ background: url(../img/download-cloud.svg) no-repeat;}
+.resume-img{margin-right: 5px; display: block; -moz-box-sizing: border-box; box-sizing: border-box; width: 30px; height: 30px; background: url(../img/download-cloud-light.svg) no-repeat; }
+button{  background: url(../img/sun.svg) no-repeat;  color: transparent;  box-shadow: none;  border: none;  width: 50px;  height: 50px;  background-position: center; cursor: pointer;  }
+.light-mode button{background: url(../img/moon.svg) no-repeat; background-position: center;}
+button:focus {outline:0;}
+.light-mode a{ color: #1d1e21;}
+a{ padding: 12px; font-size: 16px; text-decoration: none; font-weight: 100; letter-spacing: 2px;}
