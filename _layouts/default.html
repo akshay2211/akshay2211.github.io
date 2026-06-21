@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" shrink-to-fit="no">
+    <meta content="{{ page.description | default: site.description }}" name="description">
+    <meta content="Akshay Sharma https://github.com/akshay2211" name="author">
+    {% assign social_image = page.image %}
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:title" content="{{ page.title | default: site.title }}" />
+    {% if social_image %}
+    <meta property="og:image" content="{{ social_image | absolute_url }}" />
+    {% else %}
+    <meta property="og:image" content="https://raw.githubusercontent.com/akshay2211/akshay2211.github.io/master/img/akshay.jpg" />
+    {% endif %}
+    <meta property="og:description" content="{{ page.description | default: site.description }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ site.url }}">
+    <meta name="twitter:creator" content="Akshay Sharma">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}" />
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}" />
+    {% if social_image %}
+    <meta name="twitter:image" content="{{ social_image | absolute_url }}" />
+    {% else %}
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/akshay2211/akshay2211.github.io/master/img/akshay.jpg" />
+    {% endif %}
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link href="{{ '/img/favicon.ico' | relative_url }}" rel="shortcut icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap" rel="stylesheet">
+    <link href="{{ '/css/style.css' | relative_url }}" rel="stylesheet">
+    <link href="{{ '/css/bootstrap-grid.css' | relative_url }}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button onclick="dayNightToggle()" aria-label="Toggle dark mode">Toggle dark mode</button>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        {{ content }}
+    </main>
+
+    <script src="{{ '/js/load.js' | relative_url }}" type="text/javascript"></script>
+</body>
+</html>

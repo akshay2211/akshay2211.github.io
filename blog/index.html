@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+description: Notes on software, product craft, and building useful things.
+---
+<section class="blog-hero">
+    <p class="eyebrow">Blog</p>
+    <h1>Notes from the build</h1>
+    <p class="blog-intro">Thoughts on Android, architecture, product quality, and the small decisions that make software easier to use.</p>
+</section>
+
+<section class="post-list" aria-label="Blog posts">
+    {% for post in site.posts %}
+    <article class="post-card">
+        {% if post.image %}
+        <a class="post-card-image-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+            <img class="post-card-image" src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+        </a>
+        {% endif %}
+        <p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+        <a class="read-more" href="{{ post.url | relative_url }}">Read post</a>
+    </article>
+    {% endfor %}
+</section>

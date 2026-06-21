@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract software blog banner</title>
+  <desc id="desc">A dark editorial banner with a stylized code editor, notes, and interface elements.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d1e21"/>
+      <stop offset="0.55" stop-color="#24252a"/>
+      <stop offset="1" stop-color="#17181b"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f3036"/>
+      <stop offset="1" stop-color="#202126"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="720" fill="url(#bg)"/>
+  <path d="M0 560 C240 500 310 610 520 548 C760 478 860 404 1080 452 C1290 498 1405 438 1600 378 L1600 720 L0 720 Z" fill="#26272d"/>
+  <rect x="178" y="124" width="850" height="472" rx="18" fill="url(#panel)" stroke="#ffffff" stroke-opacity=".14"/>
+  <rect x="178" y="124" width="850" height="62" rx="18" fill="#18191d"/>
+  <circle cx="226" cy="155" r="9" fill="#f17070"/>
+  <circle cx="258" cy="155" r="9" fill="#f5c66b"/>
+  <circle cx="290" cy="155" r="9" fill="#66d9a5"/>
+  <rect x="238" y="236" width="92" height="12" rx="6" fill="#66d9a5"/>
+  <rect x="360" y="236" width="324" height="12" rx="6" fill="#ffffff" fill-opacity=".72"/>
+  <rect x="238" y="286" width="210" height="12" rx="6" fill="#ffffff" fill-opacity=".42"/>
+  <rect x="480" y="286" width="430" height="12" rx="6" fill="#f5c66b"/>
+  <rect x="238" y="336" width="382" height="12" rx="6" fill="#ffffff" fill-opacity=".56"/>
+  <rect x="652" y="336" width="170" height="12" rx="6" fill="#8ab4f8"/>
+  <rect x="238" y="386" width="124" height="12" rx="6" fill="#66d9a5"/>
+  <rect x="392" y="386" width="468" height="12" rx="6" fill="#ffffff" fill-opacity=".46"/>
+  <rect x="238" y="436" width="560" height="12" rx="6" fill="#ffffff" fill-opacity=".64"/>
+  <rect x="238" y="486" width="272" height="12" rx="6" fill="#f5c66b"/>
+  <rect x="542" y="486" width="260" height="12" rx="6" fill="#ffffff" fill-opacity=".5"/>
+  <rect x="1100" y="186" width="318" height="318" rx="18" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".13"/>
+  <path d="M1190 274 L1148 360 L1190 446" fill="none" stroke="#66d9a5" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1328 274 L1370 360 L1328 446" fill="none" stroke="#8ab4f8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1266 458 L1308 262" fill="none" stroke="#f5c66b" stroke-width="16" stroke-linecap="round"/>
+  <rect x="1084" y="536" width="350" height="14" rx="7" fill="#ffffff" fill-opacity=".54"/>
+  <rect x="1132" y="574" width="254" height="10" rx="5" fill="#ffffff" fill-opacity=".28"/>
+</svg>

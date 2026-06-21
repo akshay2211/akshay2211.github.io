@@ -1,0 +1,12 @@
+title: Akshay Sharma
+description: Opensource Enthusiast, Software architect and User Experience Designer
+url: "https://ak1.io"
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

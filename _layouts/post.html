@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="blog-post">
+    <a class="back-link" href="{{ '/blog/' | relative_url }}">Back to blog</a>
+    <p class="post-date">{{ page.date | date: "%b %-d, %Y" }}</p>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="post-summary">{{ page.description }}</p>
+    {% endif %}
+    {% if page.image %}
+    <figure class="post-hero">
+        <img class="post-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+    </figure>
+    {% endif %}
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>
