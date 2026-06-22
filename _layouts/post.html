@@ -48,11 +48,16 @@ layout: default
 (function () {
     var container = document.getElementById('giscus-container');
     if (!container) return;
+
     var origin = window.location.origin;
-    var darkUrl = origin + '{{ "/css/giscus-dark.css" | relative_url }}';
-    var lightUrl = origin + '{{ "/css/giscus-light.css" | relative_url }}';
-    window.__giscusThemes = { dark: darkUrl, light: lightUrl };
-    var theme = document.body.classList.contains('light-mode') ? lightUrl : darkUrl;
+    var isLocalHost = /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0)(:|$)/i.test(origin);
+    var darkTheme = isLocalHost ? 'dark' : origin + '{{ "/css/giscus-dark.css" | relative_url }}';
+    var lightTheme = isLocalHost ? 'light' : origin + '{{ "/css/giscus-light.css" | relative_url }}';
+    window.__giscusThemes = { dark: darkTheme, light: lightTheme };
+
+    var isLight = window.localStorage.getItem('light-mode') === 'light';
+    var theme = isLight ? lightTheme : darkTheme;
+
     var s = document.createElement('script');
     s.src = 'https://giscus.app/client.js';
     s.async = true;

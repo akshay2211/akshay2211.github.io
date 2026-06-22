@@ -168,8 +168,9 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 }
 
 .post-comments{
-    grid-column:1;
+    grid-column:1 / -1;
     grid-row:2;
+    justify-self:start;
     margin:80px 0 0;
     max-width:760px;
     width:100%;
@@ -473,11 +474,14 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
         gap:0;
         max-width:760px;
     }
+    .blog-post{grid-column:1;grid-row:1}
     .post-toc{
+        grid-column:1;
+        grid-row:2;
         position:static;
         margin-top:48px;
-        order:2;
     }
+    .post-comments{grid-column:1;grid-row:3}
     .post-toc-inner{
         border-left:none;
         border-top:1px solid var(--line);
@@ -502,6 +506,7 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
         border-color:var(--accent);
         background:rgba(233,196,106,.08);
     }
+    .post-comments{margin-top:64px;padding-top:40px}
 }
 
 /* Small tablet / large phone */
@@ -525,6 +530,11 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     .post-content{font-size:16px;line-height:1.8}
     .post-content h2{font-size:22px;margin:36px 0 14px}
     .post-content h3{font-size:18px;margin:28px 0 10px}
+
+    .post-comments{margin-top:56px;padding-top:36px}
+    .post-comments-header{margin-bottom:24px}
+    .post-comments-header h2{font-size:20px;margin:6px 0 10px}
+    .post-comments-intro{font-size:14.5px}
 }
 
 /* Phone */
@@ -537,4 +547,6 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     .post-card-image-link{margin:-20px -20px 16px}
     .title-desc,.thanks-text{font-size:16px}
     .post-toc-nav .toc-link{font-size:12px}
+    .post-comments{margin-top:48px;padding-top:32px}
+    .post-comments-header h2{font-size:19px}
 }
