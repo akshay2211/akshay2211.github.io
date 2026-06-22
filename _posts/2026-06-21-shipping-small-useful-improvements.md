@@ -4,6 +4,18 @@ date: 2026-06-21
 description: "A short note on keeping product work focused, practical, and easy to validate."
 image: /img/blog/shipping-small-useful-improvements.svg
 image_alt: "Abstract code editor banner for a software blog post"
+author: Akshay Sharma
+tags:
+  - software craft
+  - product
+  - shipping
+  - architecture
+keywords:
+  - shipping software
+  - small improvements
+  - product quality
+  - software craft
+  - incremental releases
 ---
 
 Good software work is often less about making a large dramatic change and more about choosing the smallest improvement that makes the product clearer, faster, or more reliable.

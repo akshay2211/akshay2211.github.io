@@ -1,19 +1,65 @@
 ---
 layout: default
 ---
-<article class="blog-post">
-    <a class="back-link" href="{{ '/blog/' | relative_url }}">Back to blog</a>
-    <p class="post-date">{{ page.date | date: "%b %-d, %Y" }}</p>
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.description %}
-    <p class="post-summary">{{ page.description }}</p>
-    {% endif %}
-    {% if page.image %}
-    <figure class="post-hero">
-        <img class="post-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
-    </figure>
-    {% endif %}
-    <div class="post-content">
-        {{ content }}
-    </div>
-</article>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+    },
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ page.author | default: site.author.name }}",
+        "url": "{{ site.url }}"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "{{ site.author.name }}",
+        "url": "{{ site.url }}"
+    }{% if page.tags and page.tags.size > 0 %},
+    "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
+}
+</script>
+<div class="page-shell page-shell-wide">
+<div class="post-shell">
+    <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+        <a class="back-link" href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">&larr;</span> Back to blog</a>
+        <p class="post-date">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+        </p>
+        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="post-summary" itemprop="description">{{ page.description }}</p>
+        {% endif %}
+        {% if page.image %}
+        <figure class="post-hero">
+            <img class="post-hero-image" itemprop="image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+        </figure>
+        {% endif %}
+        <div class="post-content" id="post-content" itemprop="articleBody">
+            {{ content }}
+        </div>
+        {% if page.tags and page.tags.size > 0 %}
+        <ul class="post-tags" aria-label="Topics">
+            {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        <meta itemprop="author" content="{{ page.author | default: site.author.name }}">
+        <meta itemprop="dateModified" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+    </article>
+    <aside class="post-toc" aria-label="On this page">
+        <div class="post-toc-inner">
+            <p class="post-toc-title">On this page</p>
+            <nav id="post-toc-nav" class="post-toc-nav" aria-label="Section index"></nav>
+        </div>
+    </aside>
+</div>
+</div>
+<script src="{{ '/js/toc.js' | relative_url }}" type="text/javascript"></script>

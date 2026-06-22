@@ -1,26 +1,54 @@
 ---
 layout: default
 title: Blog
-description: Notes on software, product craft, and building useful things.
+description: Notes on software craft, architecture, product quality, and the small decisions that make software easier to use.
+permalink: /blog/
 ---
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "{{ site.title }} — Blog",
+    "url": "{{ '/blog/' | absolute_url }}",
+    "description": "{{ page.description | strip_newlines }}",
+    "author": { "@type": "Person", "name": "{{ site.author.name }}", "url": "{{ site.url }}" },
+    "blogPost": [
+    {% for post in site.posts %}
+        {
+            "@type": "BlogPosting",
+            "headline": {{ post.title | jsonify }},
+            "url": "{{ post.url | absolute_url }}",
+            "datePublished": "{{ post.date | date_to_xmlschema }}",
+            "description": {{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 180 | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    ]
+}
+</script>
+<div class="page-shell">
 <section class="blog-hero">
-    <p class="eyebrow">Blog</p>
+    <p class="eyebrow">Journal</p>
     <h1>Notes from the build</h1>
-    <p class="blog-intro">Thoughts on Android, architecture, product quality, and the small decisions that make software easier to use.</p>
+    <p class="blog-intro">Thoughts on software craft, architecture, product quality, and the small decisions that make software easier to use.</p>
 </section>
 
 <section class="post-list" aria-label="Blog posts">
     {% for post in site.posts %}
-    <article class="post-card">
+    <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
         {% if post.image %}
         <a class="post-card-image-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
-            <img class="post-card-image" src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+            <img class="post-card-image" itemprop="image" src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy">
         </a>
         {% endif %}
-        <p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
-        <a class="read-more" href="{{ post.url | relative_url }}">Read post</a>
+        <div class="post-card-body">
+            <p class="post-date">
+                <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+            </p>
+            <h2 class="post-card-title" itemprop="headline"><a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a></h2>
+            <p class="post-card-excerpt" itemprop="description">{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+            <a class="read-more" href="{{ post.url | relative_url }}">Read post <span aria-hidden="true">&rarr;</span></a>
+        </div>
     </article>
     {% endfor %}
 </section>
+</div>

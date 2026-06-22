@@ -1,8 +1,48 @@
 title: Akshay Sharma
-description: Opensource Enthusiast, Software architect and User Experience Designer
+tagline: Software craft, architecture, and product quality
+description: >-
+  Akshay Sharma — software architect, open-source maintainer, and Kotlin
+  Multiplatform developer. Writing on software craft, architecture, product
+  quality, and the small decisions that make software easier to use.
 url: "https://ak1.io"
+baseurl: ""
+lang: en_US
+
+author:
+  name: Akshay Sharma
+  email: akshay@redigit.io
+  url: "https://ak1.io"
+  picture: /img/akshay.jpg
+
+twitter:
+  username: _akshay22
+  card: summary_large_image
+
+social:
+  name: Akshay Sharma
+  links:
+    - https://github.com/akshay2211
+    - https://gitlab.com/akshay2211
+    - https://www.linkedin.com/in/akshay-sharma-80478448/
+    - https://twitter.com/_akshay22
+
+logo: /img/akshay.jpg
+
 markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
 permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: /feed.xml
 
 defaults:
   - scope:
@@ -10,3 +50,14 @@ defaults:
       type: posts
     values:
       layout: post
+      author: Akshay Sharma
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - LICENSE
+  - .idea
+  - .DS_Store
+  - test.json
