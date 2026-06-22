@@ -32,15 +32,3 @@ keywords:
         </div>
     </div>
 </div>
-<script>
-function loadSocialIcons() {
-    var socialtext = ""
-    for (x in socialtags) {
-        var label = socialtags[x].link.replace(/^https?:\/\//, '').split('/')[0]
-        var data = '<a class="center" href="' + socialtags[x].link + '" rel="me noopener" aria-label="' + label + '" target="_blank"><img class="center" style="padding: 5px!important;width: 40px;" src="' + socialtags[x].img + '" alt="' + label + '"></a>'
-        socialtext += data
-    }
-    document.getElementById("social-list").innerHTML = socialtext;
-}
-loadSocialIcons()
-</script>

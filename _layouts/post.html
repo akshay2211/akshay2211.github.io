@@ -1,32 +1,6 @@
 ---
 layout: default
 ---
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ page.url | absolute_url }}"
-    },
-    "headline": {{ page.title | jsonify }},
-    "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
-    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-    "author": {
-        "@type": "Person",
-        "name": "{{ page.author | default: site.author.name }}",
-        "url": "{{ site.url }}"
-    },
-    "publisher": {
-        "@type": "Person",
-        "name": "{{ site.author.name }}",
-        "url": "{{ site.url }}"
-    }{% if page.tags and page.tags.size > 0 %},
-    "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
-}
-</script>
 <div class="page-shell page-shell-wide">
 <div class="post-shell">
     <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">

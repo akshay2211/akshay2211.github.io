@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="statsvg_rs banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7F77DD"/>
+      <stop offset="1" stop-color="#AFA9EC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="6" fill="url(#accent)"/>
+
+  <text x="80" y="170" font-family="sans-serif" font-size="64" font-weight="700" fill="#e6edf3">statsvg_rs</text>
+  <text x="82" y="220" font-family="sans-serif" font-size="26" fill="#7d8590">GitHub stats cards, rendered in Rust and published as static SVGs.</text>
+
+  <!-- mock card -->
+  <g transform="translate(80,280)">
+    <rect width="1040" height="270" rx="16" fill="#0d1117" stroke="#21262d"/>
+    <rect width="1040" height="3" rx="1.5" fill="url(#accent)"/>
+
+    <!-- stat tiles -->
+    <g font-family="sans-serif">
+      <g transform="translate(40,46)">
+        <text font-size="34" font-weight="700" fill="#e6edf3">12.4k</text>
+        <text y="26" font-size="13" fill="#7d8590">contributions</text>
+      </g>
+      <g transform="translate(240,46)">
+        <text font-size="34" font-weight="700" fill="#e6edf3">1.8k</text>
+        <text y="26" font-size="13" fill="#7d8590">stars</text>
+      </g>
+      <g transform="translate(440,46)">
+        <text font-size="34" font-weight="700" fill="#e6edf3">640</text>
+        <text y="26" font-size="13" fill="#7d8590">pull requests</text>
+      </g>
+      <g transform="translate(640,46)">
+        <text font-size="34" font-weight="700" fill="#39d353">47</text>
+        <text y="26" font-size="13" fill="#7d8590">longest streak</text>
+      </g>
+    </g>
+
+    <line x1="40" x2="1000" y1="120" y2="120" stroke="#21262d"/>
+
+    <!-- contribution grid -->
+    <g transform="translate(40,150)">
+      <text font-size="11" fill="#7d8590" letter-spacing="1">CONTRIBUTIONS</text>
+      <g transform="translate(0,16)">
+        <!-- generated rows of squares -->
+        <g>
+          <rect x="0"   y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+          <rect x="16"  y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="32"  y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="48"  y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="64"  y="0"  width="12" height="12" rx="2" fill="#006d32"/>
+          <rect x="80"  y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="96"  y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="112" y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+          <rect x="128" y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="144" y="0"  width="12" height="12" rx="2" fill="#006d32"/>
+        </g>
+        <g transform="translate(0,16)">
+          <rect x="0"   y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="16"  y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="32"  y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+          <rect x="48"  y="0"  width="12" height="12" rx="2" fill="#006d32"/>
+          <rect x="64"  y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="80"  y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="96"  y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="112" y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="128" y="0"  width="12" height="12" rx="2" fill="#006d32"/>
+          <rect x="144" y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+        </g>
+        <g transform="translate(0,32)">
+          <rect x="0"   y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="16"  y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="32"  y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="48"  y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+          <rect x="64"  y="0"  width="12" height="12" rx="2" fill="#006d32"/>
+          <rect x="80"  y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+          <rect x="96"  y="0"  width="12" height="12" rx="2" fill="#26a641"/>
+          <rect x="112" y="0"  width="12" height="12" rx="2" fill="#161b22"/>
+          <rect x="128" y="0"  width="12" height="12" rx="2" fill="#0e4429"/>
+          <rect x="144" y="0"  width="12" height="12" rx="2" fill="#39d353"/>
+        </g>
+      </g>
+
+      <!-- language bars -->
+      <g transform="translate(260,16)">
+        <text font-size="11" fill="#7d8590" letter-spacing="1">TOP LANGUAGES</text>
+        <g transform="translate(0,18)">
+          <rect width="320" height="8" rx="4" fill="#161b22"/>
+          <rect width="150" height="8" rx="4" fill="#7F77DD"/>
+          <rect x="150" width="90" height="8" rx="4" fill="#EF9F27"/>
+          <rect x="240" width="50" height="8" rx="4" fill="#5DCAA5"/>
+        </g>
+        <g transform="translate(0,40)" font-size="13" fill="#c9d1d9">
+          <text>Rust</text>
+          <text x="150" fill="#EF9F27">Kotlin</text>
+          <text x="240" fill="#5DCAA5">Dart</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
