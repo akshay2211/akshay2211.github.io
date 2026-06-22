@@ -32,13 +32,13 @@ main {
     --color-prettylights-syntax-constant-other-reference-link: #0a3069;
 
     --color-btn-text: #1d1e21;
-    --color-btn-bg: rgba(29, 30, 33, 0.02);
-    --color-btn-border: rgba(29, 30, 33, 0.16);
-    --color-btn-hover-bg: rgba(29, 30, 33, 0.04);
-    --color-btn-hover-border: rgba(29, 30, 33, 0.28);
-    --color-btn-active-bg: rgba(29, 30, 33, 0.08);
-    --color-btn-active-border: rgba(29, 30, 33, 0.32);
-    --color-btn-selected-bg: rgba(29, 30, 33, 0.04);
+    --color-btn-bg: #ffffff;
+    --color-btn-border: rgba(29, 30, 33, 0.18);
+    --color-btn-hover-bg: #f6f8fa;
+    --color-btn-hover-border: rgba(29, 30, 33, 0.32);
+    --color-btn-active-bg: #eef0f3;
+    --color-btn-active-border: rgba(29, 30, 33, 0.36);
+    --color-btn-selected-bg: #eef0f3;
     --color-btn-primary-text: #ffffff;
     --color-btn-primary-bg: #b8862f;
     --color-btn-primary-border: transparent;
@@ -46,24 +46,24 @@ main {
     --color-btn-primary-hover-border: transparent;
     --color-btn-primary-selected-bg: #8a6620;
     --color-btn-primary-selected-shadow: none;
-    --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.55);
+    --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.65);
     --color-btn-primary-disabled-bg: rgba(184, 134, 47, 0.45);
     --color-btn-primary-disabled-border: transparent;
 
-    --color-action-list-item-default-hover-bg: rgba(29, 30, 33, 0.04);
+    --color-action-list-item-default-hover-bg: rgba(29, 30, 33, 0.05);
     --color-segmented-control-bg: rgba(29, 30, 33, 0.04);
-    --color-segmented-control-button-bg-selected: rgba(29, 30, 33, 0.08);
+    --color-segmented-control-button-bg-selected: #ffffff;
     --color-segmented-control-button-selected-border: rgba(29, 30, 33, 0.28);
 
     --color-fg-default: #1d1e21;
     --color-fg-muted: rgba(29, 30, 33, 0.72);
     --color-fg-subtle: rgba(29, 30, 33, 0.55);
     --color-fg-on-emphasis: #ffffff;
-    --color-canvas-default: transparent;
+    --color-canvas-default: #ffffff;
     --color-canvas-overlay: #ffffff;
-    --color-canvas-inset: rgba(29, 30, 33, 0.02);
-    --color-canvas-subtle: rgba(29, 30, 33, 0.03);
-    --color-border-default: rgba(29, 30, 33, 0.16);
+    --color-canvas-inset: #f6f8fa;
+    --color-canvas-subtle: #f6f8fa;
+    --color-border-default: rgba(29, 30, 33, 0.18);
     --color-border-muted: rgba(29, 30, 33, 0.10);
     --color-neutral-muted: rgba(29, 30, 33, 0.18);
     --color-neutral-subtle: rgba(29, 30, 33, 0.06);
@@ -83,6 +83,7 @@ main {
     --color-scale-gray-7: rgba(29, 30, 33, 0.08);
     --color-scale-blue-8: #0c2d6b;
 
+    color: #1d1e21;
     background: transparent !important;
     font-family: 'Quicksand', 'Poppins', sans-serif !important;
 }
@@ -90,6 +91,24 @@ main {
 html, body {
     background: transparent !important;
 }
+
+/* Give the comment box and reactions strip a real card surface so they
+   read as their own panel instead of bleeding into the page. */
+main .gsc-reactions,
+main .gsc-comment-box,
+main .gsc-comment,
+main .gsc-comments > .gsc-header {
+    background: #ffffff;
+    border: 1px solid rgba(29, 30, 33, 0.10);
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(29, 30, 33, 0.02);
+}
+
+main .gsc-reactions { padding: 14px 18px; margin-bottom: 18px; }
+main .gsc-comments > .gsc-header { padding: 12px 18px; margin-bottom: 12px; }
+
+main .gsc-comment-box-tabs { background: #f6f8fa; border-bottom: 1px solid rgba(29, 30, 33, 0.10); }
+main .gsc-comment-box-textarea { background: #ffffff; }
 
 main .pagination-loader-container { background-image: none; }
 main .gsc-loading-image { background-image: none; }

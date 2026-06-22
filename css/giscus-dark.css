@@ -33,11 +33,11 @@ main {
 
     --color-btn-text: #ffffff;
     --color-btn-bg: rgba(255, 255, 255, 0.04);
-    --color-btn-border: rgba(255, 255, 255, 0.16);
+    --color-btn-border: rgba(255, 255, 255, 0.18);
     --color-btn-hover-bg: rgba(255, 255, 255, 0.08);
-    --color-btn-hover-border: rgba(255, 255, 255, 0.28);
+    --color-btn-hover-border: rgba(255, 255, 255, 0.32);
     --color-btn-active-bg: rgba(255, 255, 255, 0.12);
-    --color-btn-active-border: rgba(255, 255, 255, 0.32);
+    --color-btn-active-border: rgba(255, 255, 255, 0.36);
     --color-btn-selected-bg: rgba(255, 255, 255, 0.06);
     --color-btn-primary-text: #1d1e21;
     --color-btn-primary-bg: #e9c46a;
@@ -59,8 +59,8 @@ main {
     --color-fg-muted: rgba(255, 255, 255, 0.72);
     --color-fg-subtle: rgba(255, 255, 255, 0.55);
     --color-fg-on-emphasis: #1d1e21;
-    --color-canvas-default: transparent;
-    --color-canvas-overlay: #1d1e21;
+    --color-canvas-default: #25272b;
+    --color-canvas-overlay: #25272b;
     --color-canvas-inset: rgba(255, 255, 255, 0.03);
     --color-canvas-subtle: rgba(255, 255, 255, 0.04);
     --color-border-default: rgba(255, 255, 255, 0.16);
@@ -83,6 +83,7 @@ main {
     --color-scale-gray-7: rgba(255, 255, 255, 0.08);
     --color-scale-blue-8: #0c2d6b;
 
+    color: #ffffff;
     background: transparent !important;
     font-family: 'Quicksand', 'Poppins', sans-serif !important;
 }
@@ -90,6 +91,24 @@ main {
 html, body {
     background: transparent !important;
 }
+
+/* Give the comment box and reactions strip a real card surface so they
+   read as their own panel instead of bleeding into the page. */
+main .gsc-reactions,
+main .gsc-comment-box,
+main .gsc-comment,
+main .gsc-comments > .gsc-header {
+    background: #25272b;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+main .gsc-reactions { padding: 14px 18px; margin-bottom: 18px; }
+main .gsc-comments > .gsc-header { padding: 12px 18px; margin-bottom: 12px; }
+
+main .gsc-comment-box-tabs { background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
+main .gsc-comment-box-textarea { background: #1d1e21; }
 
 main .pagination-loader-container { background-image: none; }
 main .gsc-loading-image { background-image: none; }
