@@ -61,9 +61,11 @@ img{max-width:100%;display:block}
 ::selection{background:var(--accent);color:#1d1e21}
 
 /* ============================================================
-   Header
+   Header (page-level only — scoped to direct body child so nested
+   <header> elements inside articles/comments don't inherit
+   position:absolute and get pinned to the top of the page)
    ============================================================ */
-header{
+body > header{
     position:absolute;
     top:0;left:0;right:0;
     display:flex;
@@ -71,7 +73,7 @@ header{
     padding:14px 22px;
     z-index:10;
 }
-header button{
+body > header button{
     background:url(../img/sun.svg) no-repeat center;
     color:transparent;
     border:none;
@@ -80,8 +82,8 @@ header button{
     cursor:pointer;
     flex-shrink:0;
 }
-header button:focus{outline:0}
-.light-mode header button{background:url(../img/moon.svg) no-repeat center}
+body > header button:focus{outline:0}
+body.light-mode > header button{background:url(../img/moon.svg) no-repeat center}
 
 .site-nav{
     display:flex;
@@ -163,6 +165,37 @@ header button:focus{outline:0}
     border:1px solid var(--line);
     border-radius:999px;
     color:var(--soft);
+}
+
+.post-comments{
+    grid-column:1;
+    grid-row:2;
+    margin:80px 0 0;
+    max-width:760px;
+    width:100%;
+    border-top:0.5px solid var(--line);
+    padding-top:48px;
+}
+.post-comments-header{margin-bottom:32px}
+.post-comments-header h2{
+    font-family:'Poppins',sans-serif;
+    font-size:24px;
+    font-weight:300;
+    letter-spacing:-.2px;
+    margin:8px 0 12px;
+}
+.post-comments-intro{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--muted);
+    margin:0;
+}
+#giscus-container{margin-top:16px;background:var(--bg)}
+.giscus,.giscus-frame{width:100%}
+.giscus-frame{
+    border:none;
+    color-scheme:normal;
+    background:var(--bg) !important;
 }
 
 /* ============================================================
@@ -374,10 +407,13 @@ header button:focus{outline:0}
 
 /* ----- Right-side TOC ----- */
 .post-toc{
+    grid-column:2;
+    grid-row:1;
     position:sticky;
     top:110px;
     align-self:flex-start;
 }
+.blog-post{grid-column:1;grid-row:1}
 .post-toc-inner{
     border-left:1px solid var(--line);
     padding:4px 0 4px 20px;

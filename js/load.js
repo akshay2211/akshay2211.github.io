@@ -39,6 +39,11 @@ function dayNightToggle() {
     } else {
         window.localStorage.setItem("light-mode", "light");
     }
+    var themes = window.__giscusThemes;
+    if (themes) {
+        var theme = document.body.classList.contains("light-mode") ? themes.light : themes.dark;
+        window.dispatchEvent(new CustomEvent("giscus-theme-change", { detail: { theme: theme } }));
+    }
 }
 
 function checkDayNight() {

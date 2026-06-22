@@ -28,6 +28,23 @@ social:
 
 logo: /img/akshay.jpg
 
+# ---------------------------------------------------------------------------
+# Giscus comments (https://giscus.app)
+# Setup steps (one-time, do these on github.com):
+#   1. Enable Discussions on akshay2211/akshay2211.github.io (Settings → General → Features → Discussions)
+#   2. Install the Giscus app: https://github.com/apps/giscus
+#   3. Pick (or create) a Discussion category — recommend "Announcements" with format "Announcement"
+#   4. Go to https://giscus.app, fill in the form, copy the generated repo_id and category_id below
+# Until repo_id + category_id are filled in, the comments section stays hidden.
+# ---------------------------------------------------------------------------
+giscus:
+  repo: akshay2211/akshay2211.github.io
+  repo_id: "MDEwOlJlcG9zaXRvcnkxMDY5ODk0MDY"           # paste from giscus.app (e.g. R_kgDOxxxxxx)
+  category: Announcements
+  category_id: "DIC_kwDOBmCHXs4C_qfX"       # paste from giscus.app (e.g. DIC_kwDOxxxxxx)
+  mapping: pathname
+  input_position: bottom
+
 markdown: kramdown
 kramdown:
   input: GFM

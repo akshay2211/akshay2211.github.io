@@ -34,6 +34,54 @@ layout: default
             <nav id="post-toc-nav" class="post-toc-nav" aria-label="Section index"></nav>
         </div>
     </aside>
+
+{% if site.giscus.repo_id and site.giscus.category_id %}
+<section class="post-comments" aria-label="Comments and reactions">
+    <header class="post-comments-header">
+        <p class="eyebrow">Discussion</p>
+        <h2>Leave a comment or react</h2>
+        <p class="post-comments-intro">React with an emoji or start a thread — comments are stored on GitHub Discussions.</p>
+    </header>
+    <div id="giscus-container"></div>
+</section>
+<script>
+(function () {
+    var container = document.getElementById('giscus-container');
+    if (!container) return;
+    var origin = window.location.origin;
+    var darkUrl = origin + '{{ "/css/giscus-dark.css" | relative_url }}';
+    var lightUrl = origin + '{{ "/css/giscus-light.css" | relative_url }}';
+    window.__giscusThemes = { dark: darkUrl, light: lightUrl };
+    var theme = document.body.classList.contains('light-mode') ? lightUrl : darkUrl;
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.setAttribute('data-repo', '{{ site.giscus.repo }}');
+    s.setAttribute('data-repo-id', '{{ site.giscus.repo_id }}');
+    s.setAttribute('data-category', '{{ site.giscus.category }}');
+    s.setAttribute('data-category-id', '{{ site.giscus.category_id }}');
+    s.setAttribute('data-mapping', '{{ site.giscus.mapping | default: "pathname" }}');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', '{{ site.giscus.input_position | default: "bottom" }}');
+    s.setAttribute('data-theme', theme);
+    s.setAttribute('data-lang', 'en');
+    s.setAttribute('data-loading', 'lazy');
+    container.appendChild(s);
+
+    window.addEventListener('giscus-theme-change', function (e) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: e.detail.theme } } },
+            'https://giscus.app'
+        );
+    });
+})();
+</script>
+{% endif %}
 </div>
 </div>
 <script src="{{ '/js/toc.js' | relative_url }}" type="text/javascript"></script>
