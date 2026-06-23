@@ -84,12 +84,16 @@ main {
     --color-scale-blue-8: #0c2d6b;
 
     color: #ffffff;
-    background: transparent !important;
+    background-color: #1d1e21 !important;
     font-family: 'Quicksand', 'Poppins', sans-serif !important;
 }
 
 html, body {
-    background: transparent !important;
+    background-color: #1d1e21 !important;
+}
+
+main, main .gsc-main {
+    background-color: #1d1e21 !important;
 }
 
 /* Give the comment box and reactions strip a real card surface so they
@@ -97,18 +101,20 @@ html, body {
 main .gsc-reactions,
 main .gsc-comment-box,
 main .gsc-comment,
-main .gsc-comments > .gsc-header {
-    background: #25272b;
+main .gsc-comments > .gsc-header,
+main .gsc-comments .gsc-header {
+    background-color: #25272b !important;
     border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 10px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
 main .gsc-reactions { padding: 14px 18px; margin-bottom: 18px; }
-main .gsc-comments > .gsc-header { padding: 12px 18px; margin-bottom: 12px; }
+main .gsc-comments > .gsc-header,
+main .gsc-comments .gsc-header { padding: 12px 18px; margin-bottom: 12px; }
 
-main .gsc-comment-box-tabs { background: rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
-main .gsc-comment-box-textarea { background: #1d1e21; }
+main .gsc-comment-box-tabs { background-color: rgba(255, 255, 255, 0.03) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
+main .gsc-comment-box-textarea { background-color: #1d1e21 !important; }
 
 main .pagination-loader-container { background-image: none; }
 main .gsc-loading-image { background-image: none; }
