@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="630"
+   viewBox="0 0 1200 630"
+   role="img"
+   aria-label="DrawBox 2.0 multiplatform banner"
+   version="1.1"
+   id="svg36"
+   sodipodi:docname="drawbox-goes-multiplatform.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview36"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.4414114"
+     inkscape:cx="825.76027"
+     inkscape:cy="291.11165"
+     inkscape:window-width="1505"
+     inkscape:window-height="660"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg36" />
+  <defs
+     id="defs5">
+    <linearGradient
+       id="bg"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#0d1117"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#161b22"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="accent"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0">
+      <stop
+         offset="0"
+         stop-color="#7F77DD"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#AFA9EC"
+         id="stop4" />
+    </linearGradient>
+    <pattern
+       id="grid"
+       width="24"
+       height="24"
+       patternUnits="userSpaceOnUse">
+      <path
+         d="M 24 0 L 0 0 0 24"
+         fill="none"
+         stroke="#1f2630"
+         stroke-width="1"
+         id="path4" />
+    </pattern>
+    <marker
+       id="arrowhead"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="#AFA9EC"
+         id="path5" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#accent"
+       id="linearGradient36"
+       x1="0"
+       y1="0"
+       x2="40.249224"
+       y2="0"
+       gradientTransform="scale(13.416408,0.0745356)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#accent"
+       id="linearGradient37"
+       x1="17.522202"
+       y1="130.38087"
+       x2="130.03318"
+       y2="130.38087"
+       gradientTransform="scale(2.1686772,0.46111057)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <rect
+     width="1200"
+     height="630"
+     fill="url(#bg)"
+     id="rect5" />
+  <rect
+     width="1200"
+     height="6"
+     fill="url(#accent)"
+     id="rect6" />
+  <!-- left column: title + platform pills -->
+  <g
+     id="g25">
+    <text
+       x="80"
+       y="170"
+       font-family="sans-serif"
+       font-size="64"
+       font-weight="700"
+       fill="#e6edf3"
+       id="text6">DrawBox 2.0</text>
+    <text
+       x="82"
+       y="218"
+       font-family="sans-serif"
+       font-size="24px"
+       fill="#7d8590"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         x="82"
+         y="218">One drawing library. Android, iOS, Web,</tspan><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         x="82"
+         y="248">and Desktop.</tspan></text>
+    <text
+       x="84.265457"
+       y="275.18552"
+       font-family="sans-serif"
+       font-size="16px"
+       fill="#6e7681"
+       id="text8">Kotlin Multiplatform · Compose Multiplatform · MVI</text>
+    <!-- platform pills -->
+    <g
+       font-family="sans-serif"
+       font-size="13"
+       font-weight="600"
+       id="g13">
+      <g
+         transform="translate(80,300)"
+         id="g9">
+        <rect
+           width="108"
+           height="34"
+           rx="17"
+           fill="#0d1117"
+           stroke="#21262d"
+           id="rect8" />
+        <circle
+           cx="20"
+           cy="17"
+           r="4"
+           fill="#3DDC84"
+           id="circle8" />
+        <text
+           x="34"
+           y="22"
+           fill="#c9d1d9"
+           id="text9">androidMain</text>
+      </g>
+      <g
+         transform="translate(200,300)"
+         id="g10">
+        <rect
+           width="70"
+           height="34"
+           rx="17"
+           fill="#0d1117"
+           stroke="#21262d"
+           id="rect9" />
+        <circle
+           cx="20"
+           cy="17"
+           r="4"
+           fill="#AFA9EC"
+           id="circle9" />
+        <text
+           x="34"
+           y="22"
+           fill="#c9d1d9"
+           id="text10">iosMain</text>
+      </g>
+      <g
+         transform="translate(282,300)"
+         id="g11">
+        <rect
+           width="78"
+           height="34"
+           rx="17"
+           fill="#0d1117"
+           stroke="#21262d"
+           id="rect10" />
+        <circle
+           cx="20"
+           cy="17"
+           r="4"
+           fill="#EF9F27"
+           id="circle10" />
+        <text
+           x="34"
+           y="22"
+           fill="#c9d1d9"
+           id="text11">jvmMain</text>
+      </g>
+      <g
+         transform="translate(372,300)"
+         id="g12">
+        <rect
+           width="100"
+           height="34"
+           rx="17"
+           fill="#0d1117"
+           stroke="#21262d"
+           id="rect11" />
+        <circle
+           cx="20"
+           cy="17"
+           r="4"
+           fill="#5DCAA5"
+           id="circle11" />
+        <text
+           x="34"
+           y="22"
+           fill="#c9d1d9"
+           id="text12">wasmJsMain</text>
+      </g>
+    </g>
+    <!-- shared/commonMain hint -->
+    <g
+       transform="translate(80,370)"
+       font-family="ui-monospace, monospace"
+       font-size="13"
+       fill="#7d8590"
+       id="g14">
+      <text
+         id="text13">shared/commonMain</text>
+      <text
+         y="22"
+         fill="#6e7681"
+         id="text14">  └─ domain · usecase · viewmodel · reducer</text>
+    </g>
+    <!-- toolbar mock -->
+    <g
+       transform="translate(80,470)"
+       id="g24">
+      <rect
+         width="392"
+         height="56"
+         rx="28"
+         fill="#0d1117"
+         stroke="#21262d"
+         id="rect14" />
+      <!-- pen (selected) -->
+      <g
+         transform="translate(28,28)"
+         id="g15">
+        <circle
+           r="18"
+           fill="url(#accent)"
+           id="circle14" />
+        <path
+           d="M -6 6 L 4 -4 L 6 -2 L -4 8 Z"
+           fill="#0d1117"
+           id="path14" />
+      </g>
+      <!-- rectangle -->
+      <g
+         transform="translate(80,28)"
+         id="g16">
+        <rect
+           x="-9"
+           y="-7"
+           width="18"
+           height="14"
+           rx="2"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="rect15" />
+      </g>
+      <!-- circle -->
+      <g
+         transform="translate(128,28)"
+         id="g17">
+        <circle
+           r="9"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="circle16" />
+      </g>
+      <!-- triangle -->
+      <g
+         transform="translate(176,28)"
+         id="g18">
+        <path
+           d="M 0 -10 L 9 7 L -9 7 Z"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="path17" />
+      </g>
+      <!-- arrow -->
+      <g
+         transform="translate(224,28)"
+         id="g19">
+        <line
+           x1="-9"
+           y1="0"
+           x2="6"
+           y2="0"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="line18" />
+        <path
+           d="M 6 -4 L 10 0 L 6 4"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           stroke-linejoin="round"
+           id="path18" />
+      </g>
+      <!-- connector -->
+      <g
+         transform="translate(272,28)"
+         id="g20">
+        <circle
+           cx="-8"
+           cy="0"
+           r="2.5"
+           fill="#c9d1d9"
+           id="circle19" />
+        <circle
+           cx="8"
+           cy="0"
+           r="2.5"
+           fill="#c9d1d9"
+           id="circle20" />
+        <path
+           d="M -6 0 C 0 -8 0 8 6 0"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="path20" />
+      </g>
+      <!-- eraser -->
+      <g
+         transform="translate(320,28)"
+         id="g21">
+        <path
+           d="M -8 4 L 2 -6 L 8 0 L -2 10 Z"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           stroke-linejoin="round"
+           id="path21" />
+        <line
+           x1="-2"
+           y1="10"
+           x2="8"
+           y2="10"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="line21" />
+      </g>
+      <!-- undo -->
+      <g
+         transform="translate(364,28)"
+         id="g23">
+        <path
+           d="M 6 -6 A 8 8 0 1 0 6 6"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           id="path22" />
+        <path
+           d="M 6 -6 L -1 -6 L 6 -1"
+           fill="none"
+           stroke="#c9d1d9"
+           stroke-width="1.6"
+           stroke-linejoin="round"
+           id="path23" />
+      </g>
+    </g>
+  </g>
+  <!-- right side: mock canvas -->
+  <g
+     transform="matrix(0.9161733,0,0,1.000093,609.04045,96.774988)"
+     id="g36">
+    <rect
+       width="540"
+       height="460"
+       rx="20"
+       fill="#0d1117"
+       stroke="#21262d"
+       id="rect25"
+       x="0"
+       y="0" />
+    <rect
+       width="540"
+       height="3"
+       rx="1.5"
+       fill="url(#accent)"
+       id="rect26"
+       style="fill:url(#linearGradient36)"
+       x="0"
+       y="0" />
+    <!-- canvas inner area -->
+    <g
+       transform="translate(20,28)"
+       id="g35">
+      <rect
+         width="500"
+         height="412"
+         rx="12"
+         fill="#0a0f15"
+         id="rect27"
+         x="0"
+         y="0" />
+      <rect
+         width="500"
+         height="412"
+         rx="12"
+         fill="url(#grid)"
+         id="rect28"
+         x="0"
+         y="0" />
+      <!-- freehand pen stroke -->
+      <path
+         d="m 40,80 c 30,-40 70,50 120,10 50,-40 80,-40 120,20"
+         fill="none"
+         stroke="url(#accent)"
+         stroke-width="4"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path28"
+         style="stroke:url(#linearGradient37)" />
+      <!-- rectangle with corner radius -->
+      <rect
+         x="60"
+         y="180"
+         width="150"
+         height="100"
+         rx="14"
+         fill="none"
+         stroke="#ef9f27"
+         stroke-width="2.5"
+         id="rect29" />
+      <text
+         x="135"
+         y="236"
+         font-family="sans-serif"
+         font-size="14px"
+         fill="#ef9f27"
+         text-anchor="middle"
+         id="text29">shape</text>
+      <!-- circle -->
+      <circle
+         cx="370"
+         cy="220"
+         r="56"
+         fill="none"
+         stroke="#5dcaa5"
+         stroke-width="2.5"
+         id="circle29" />
+      <text
+         x="370"
+         y="225"
+         font-family="sans-serif"
+         font-size="14px"
+         fill="#5dcaa5"
+         text-anchor="middle"
+         id="text30">element</text>
+      <!-- connector between rect and circle -->
+      <path
+         d="m 210,230 c 50,0 70,-10 104,-10"
+         fill="none"
+         stroke="#afa9ec"
+         stroke-width="2"
+         stroke-dasharray="none"
+         marker-end="url(#arrowhead)"
+         id="path30" />
+      <!-- selection handles on the circle (showing drag/scale) -->
+      <g
+         fill="#0d1117"
+         stroke="#afa9ec"
+         stroke-width="1.5"
+         id="g33">
+        <rect
+           x="310"
+           y="160"
+           width="8"
+           height="8"
+           id="rect30" />
+        <rect
+           x="422"
+           y="160"
+           width="8"
+           height="8"
+           id="rect31" />
+        <rect
+           x="310"
+           y="272"
+           width="8"
+           height="8"
+           id="rect32" />
+        <rect
+           x="422"
+           y="272"
+           width="8"
+           height="8"
+           id="rect33" />
+      </g>
+      <!-- arrow -->
+      <line
+         x1="60"
+         y1="350"
+         x2="200"
+         y2="350"
+         stroke="#c9d1d9"
+         stroke-width="2"
+         marker-end="url(#arrowhead)"
+         id="line33" />
+      <!-- triangle -->
+      <path
+         d="m 280,372 40,-52 40,52 z"
+         fill="none"
+         stroke="#c9d1d9"
+         stroke-width="2"
+         stroke-linejoin="round"
+         id="path33" />
+      <!-- zoom/pan corner indicator -->
+      <g
+         transform="translate(420,360)"
+         font-family="ui-monospace, monospace"
+         font-size="11px"
+         fill="#6e7681"
+         id="g34">
+        <rect
+           x="-4"
+           y="-14"
+           width="78"
+           height="22"
+           rx="4"
+           fill="#0d1117"
+           stroke="#21262d"
+           id="rect34" />
+        <text
+           x="0"
+           y="2"
+           id="text34">100% ⤢</text>
+      </g>
+    </g>
+  </g>
+</svg>
