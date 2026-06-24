@@ -406,6 +406,80 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     font-style:italic;
 }
 
+/* ----- Star-on-GitHub CTA at end of posts ----- */
+.repo-star-cta{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    margin:44px 0 8px;
+    padding:22px 24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+}
+.repo-star-cta-text{flex:1 1 280px;min-width:0}
+.repo-star-cta-text .eyebrow{
+    color:var(--accent);
+    margin:0 0 8px;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+.repo-star-cta-text p{
+    margin:0;
+    color:var(--muted);
+    font-size:15.5px;
+    line-height:1.65;
+}
+.repo-star-cta-text p strong{color:var(--fg);font-weight:600}
+.repo-star-button{
+    display:inline-flex;
+    align-items:stretch;
+    flex:0 0 auto;
+    border:1px solid var(--line-strong);
+    border-radius:8px;
+    background:var(--card-hover);
+    overflow:hidden;
+    font-family:'Quicksand','Poppins',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    color:var(--fg) !important;
+    text-decoration:none !important;
+    transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.repo-star-button:hover{
+    border-color:var(--accent);
+    background:rgba(233,196,106,.1);
+    transform:translateY(-1px);
+}
+.light-mode .repo-star-button:hover{background:rgba(184,134,47,.1)}
+.repo-star-button-action{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    border-right:1px solid var(--line);
+}
+.repo-star-button-action svg{width:16px;height:16px;flex-shrink:0}
+.repo-star-button-action .star-icon{fill:var(--accent)}
+.repo-star-button-action .gh-icon{fill:currentColor}
+.repo-star-button-repo{
+    display:inline-flex;
+    align-items:center;
+    padding:10px 14px;
+    color:var(--muted);
+    font-weight:500;
+    letter-spacing:.2px;
+}
+@media (max-width:600px){
+    .repo-star-cta{padding:18px;flex-direction:column;align-items:flex-start}
+    .repo-star-button{align-self:stretch}
+    .repo-star-button-repo{flex:1 1 auto;justify-content:flex-end}
+}
+
 /* ----- Right-side TOC ----- */
 .post-toc{
     grid-column:2;
