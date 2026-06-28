@@ -1,7 +1,61 @@
 ---
 permalink: /robots.txt
 ---
+# Default — every well-behaved crawler is welcome.
 User-agent: *
+Allow: /
+
+# AI assistants and their crawlers are explicitly welcome. Listing each
+# user-agent serves as an opt-in signal beyond the wildcard above.
+
+# OpenAI (training, search, inference fetches)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude training + live web access)
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Gemini training + research crawl)
+User-agent: Google-Extended
+Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Meta (Llama)
+User-agent: meta-externalagent
+Allow: /
+User-agent: FacebookBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl (feeds many model training sets)
+User-agent: CCBot
+Allow: /
+
+# DuckDuckGo AI
+User-agent: DuckAssistBot
 Allow: /
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

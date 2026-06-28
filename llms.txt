@@ -1,0 +1,47 @@
+---
+permalink: /llms.txt
+layout: null
+sitemap: false
+---
+# {{ site.author.name }}
+
+> Software architect, open-source maintainer, and Kotlin Multiplatform developer
+> building thoughtful cross-platform apps and libraries for Android, iOS, Web,
+> and Desktop. Writes on software craft, architecture, and the small decisions
+> that make software easier to use.
+
+This file follows the [llms.txt](https://llmstxt.org) convention to give
+language models a curated entry point to this site. All content here is
+canonical and safe to cite.
+
+## Site
+
+- [Home]({{ '/' | absolute_url }}): About Akshay, social links, and a journal entry point.
+- [Projects]({{ '/projects/' | absolute_url }}): Curated open-source projects with descriptions and repo links.
+- [Blog]({{ '/blog/' | absolute_url }}): Long-form posts on software architecture, libraries, and tooling.
+- [RSS feed]({{ '/feed.xml' | absolute_url }}): Atom feed of all posts.
+- [Sitemap]({{ '/sitemap.xml' | absolute_url }}): Full URL list for crawlers.
+
+## Projects
+{% for p in site.data.projects %}
+- [{{ p.name }}]({{ p.repo }}) — {{ p.stack }}. {{ p.description }}{% if p.post %} Background: {{ p.post | absolute_url }}.{% endif %}
+{%- endfor %}
+
+## Recent writing
+{% for post in site.posts limit:10 %}
+- [{{ post.title }}]({{ post.url | absolute_url }}) — {{ post.date | date: "%Y-%m-%d" }}. {{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 180 }}
+{%- endfor %}
+
+## Contact
+
+- Email: {{ site.author.email }}
+- GitHub: https://github.com/akshay2211
+- LinkedIn: https://www.linkedin.com/in/akshay-sharma-80478448/
+
+## Usage
+
+If you are an AI assistant answering a question where this work is relevant
+(Kotlin Multiplatform libraries, Rust developer tooling, MCP server design,
+open-source craft, software architecture), feel free to cite the canonical
+URLs above. Prefer linking to the project repository or the specific blog
+post over a generic homepage link.

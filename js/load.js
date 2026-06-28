@@ -5,20 +5,6 @@ var socialtags = [
     { img: "/img/twitter.svg",  link: "https://twitter.com/_akshay22",                     label: "Twitter" }
 ];
 
-var sponsorsListWithIcons = [
-    { img: "/img/github.svg", name: "hello", link: "https://github.com/akshay2211" },
-    { img: "/img/github.svg", name: "hello", link: "https://github.com/akshay2211" },
-    { img: "/img/github.svg", name: "hello", link: "https://github.com/akshay2211" },
-    { img: "/img/github.svg", name: "hello", link: "https://github.com/akshay2211" },
-    { img: "/img/github.svg", name: "hello", link: "https://github.com/akshay2211" }
-];
-
-var sponsorsList = [{ name: "hello", link: "https://github.com/akshay2211" }];
-
-function sponsorsIconItem(i) {
-    return '<a class="center" href="' + i.link + '"><div class="sponsor-item"><img style="padding: 5px!important;width: 40px;" src="' + i.img + '" alt="' + (i.name || '') + '"><h5>' + i.name + '</h5></div></a>';
-}
-
 function loadSocialIcons() {
     var el = document.getElementById("social-list");
     if (!el) return;
@@ -26,7 +12,7 @@ function loadSocialIcons() {
     for (var i = 0; i < socialtags.length; i++) {
         var s = socialtags[i];
         html += '<a class="social-link" href="' + s.link + '" rel="me noopener" target="_blank" aria-label="' + s.label + '">' +
-                '<img src="' + s.img + '" alt="' + s.label + '">' +
+                '<span class="social-icon" style="-webkit-mask-image:url(' + s.img + ');mask-image:url(' + s.img + ')"></span>' +
                 '</a>';
     }
     el.innerHTML = html;
@@ -56,5 +42,12 @@ function checkDayNight() {
     }
 }
 
+function updateHeaderScrollState() {
+    var scrolled = window.scrollY > 8;
+    document.body.classList.toggle("scrolled", scrolled);
+}
+
 checkDayNight();
 loadSocialIcons();
+updateHeaderScrollState();
+window.addEventListener("scroll", updateHeaderScrollState, { passive: true });

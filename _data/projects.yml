@@ -1,0 +1,44 @@
+- name: DrawBox
+  stack: Kotlin Multiplatform · Compose
+  lang: Kotlin
+  description: A small drawing library with a pen tool, undo stack, and export — originally Android-only, now running across Android, iOS, Web, and Desktop.
+  repo: https://github.com/akshay2211/DrawBox
+  post: /blog/2026/06/23/drawbox-goes-multiplatform/
+
+- name: Universal Context Pipeline
+  stack: Rust · MCP
+  lang: Rust
+  description: A local-first MCP server that indexes your notes, code, and past Claude chats into one searchable tool — no cloud, no telemetry, single Rust binary.
+  repo: https://github.com/akshay2211/universal-context-pipeline
+  post: /blog/2026/06/28/ucp-local-mcp-for-claude/
+
+- name: statsvg_rs
+  stack: Rust · SVG
+  lang: Rust
+  description: A GitHub stats card renderer I actually control — one Rust program that produces both a header-heavy profile card and a stripped-down lifetime-stats card, refreshed every six hours.
+  repo: https://github.com/akshay2211/statsvg_rs
+  post: /blog/2026/06/22/statsvg-rs-github-stats-cards/
+
+- name: PixImagePicker
+  stack: Kotlin · Android
+  lang: Kotlin
+  description: A drop-in Android image-picker library that mirrors the WhatsApp image-picking experience.
+  repo: https://github.com/akshay2211/PixImagePicker
+
+- name: BubbleTabBar
+  stack: Kotlin · Android
+  lang: Kotlin
+  description: A bottom navigation bar for Android with customizable bubble-shaped tab indicators.
+  repo: https://github.com/akshay2211/BubbleTabBar
+
+- name: Paper
+  stack: Kotlin · Jetpack Compose
+  lang: Kotlin
+  description: An offline-first Android notes app built in Jetpack Compose with MVVM, DataStore, Room, and Coroutines.
+  repo: https://github.com/akshay2211/Paper
+
+- name: NYTimes-Compose
+  stack: Kotlin · Jetpack Compose
+  lang: Kotlin
+  description: A minimal, offline-first Android client for the NYTimes Top Stories API — Jetpack Compose, MVVM, Room, and Coil.
+  repo: https://github.com/akshay2211/NYTimes-Compose

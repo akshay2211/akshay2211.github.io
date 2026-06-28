@@ -53,19 +53,29 @@
 <body>
     <header>
         <button onclick="dayNightToggle()" aria-label="Toggle dark mode">Toggle dark mode</button>
+        {%- assign blog_current = false -%}
+        {%- if page.url == '/blog/' or page.layout == 'post' -%}{%- assign blog_current = true -%}{%- endif -%}
         <nav class="site-nav" aria-label="Primary navigation">
-            {%- unless page.url == '/' -%}
-            <a href="{{ '/' | relative_url }}">Home</a>
-            {%- endunless -%}
-            {%- unless page.url == '/blog/' -%}
-            <a href="{{ '/blog/' | relative_url }}">Blog</a>
-            {%- endunless -%}
+            <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="is-current" aria-current="page"{% endif %}>Home</a>
+            <a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %} class="is-current" aria-current="page"{% endif %}>Projects</a>
+            <a href="{{ '/blog/' | relative_url }}"{% if blog_current %} class="is-current" aria-current="page"{% endif %}>Blog</a>
         </nav>
     </header>
 
     <main>
         {{ content }}
     </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <p class="site-footer-meta">&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}</p>
+            <nav class="site-footer-nav" aria-label="Footer">
+                <a href="mailto:{{ site.author.email }}">Email</a>
+                <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+                <a href="https://github.com/akshay2211" rel="me noopener" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </footer>
 
     <script src="{{ '/js/load.js' | relative_url }}" type="text/javascript"></script>
 </body>

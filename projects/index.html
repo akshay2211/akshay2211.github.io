@@ -1,0 +1,54 @@
+---
+layout: default
+title: Projects
+description: A small set of open-source projects I maintain — Kotlin Multiplatform libraries and Rust tooling for things I actually use.
+permalink: /projects/
+---
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects — {{ site.author.name }}",
+    "url": "{{ '/projects/' | absolute_url }}",
+    "description": {{ page.description | jsonify }},
+    "author": { "@type": "Person", "name": "{{ site.author.name }}", "url": "{{ site.url }}" },
+    "hasPart": [
+        {%- for p in site.data.projects -%}
+        {
+            "@type": "SoftwareSourceCode",
+            "name": {{ p.name | jsonify }},
+            "description": {{ p.description | jsonify }},
+            "codeRepository": {{ p.repo | jsonify }},
+            "url": {{ p.repo | jsonify }},
+            {% if p.lang %}"programmingLanguage": {{ p.lang | jsonify }},{% endif %}
+            "author": { "@type": "Person", "name": "{{ site.author.name }}", "url": "{{ site.url }}" }{% if p.post %},
+            "subjectOf": { "@type": "BlogPosting", "url": "{{ p.post | absolute_url }}" }{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+    ]
+}
+</script>
+<div class="page-shell">
+<section class="blog-hero">
+    <p class="eyebrow">Work</p>
+    <h1>Projects</h1>
+    <p class="blog-intro">A small set of open-source things I build and maintain — Kotlin Multiplatform libraries and Rust tooling for problems I kept running into.</p>
+</section>
+
+<section class="post-list" aria-label="Projects">
+    {% assign projects = site.data.projects | default: empty %}
+    {% for p in site.data.projects %}
+    <article class="post-card project-card">
+        <div class="post-card-body">
+            <p class="post-date">{{ p.stack }}</p>
+            <h2 class="post-card-title"><a href="{{ p.repo }}" rel="noopener" target="_blank">{{ p.name }}</a></h2>
+            <p class="post-card-excerpt">{{ p.description }}</p>
+            <div class="project-card-links">
+                <a class="read-more" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+                {% if p.post %}<a class="read-more project-secondary" href="{{ p.post | relative_url }}">Read the story <span aria-hidden="true">&rarr;</span></a>{% endif %}
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+</div>

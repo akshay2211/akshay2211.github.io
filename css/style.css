@@ -66,13 +66,22 @@ img{max-width:100%;display:block}
    position:absolute and get pinned to the top of the page)
    ============================================================ */
 body > header{
-    position:absolute;
+    position:fixed;
     top:0;left:0;right:0;
     display:flex;
     align-items:center;
     padding:14px 22px;
     z-index:10;
+    border-bottom:1px solid transparent;
+    transition:background .25s ease,border-color .25s ease,backdrop-filter .25s ease;
 }
+body.scrolled > header{
+    background:rgba(29,30,33,.72);
+    backdrop-filter:saturate(140%) blur(14px);
+    -webkit-backdrop-filter:saturate(140%) blur(14px);
+    border-bottom-color:var(--line);
+}
+body.light-mode.scrolled > header{background:rgba(250,250,250,.78)}
 body > header button{
     background:url(../img/sun.svg) no-repeat center;
     color:transparent;
@@ -101,22 +110,15 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     transition:opacity .2s ease;
 }
 .site-nav a:hover{opacity:1}
+.site-nav a.is-current{
+    opacity:1;
+    color:var(--accent);
+}
 
 /* ============================================================
    Home page layout
    ============================================================ */
 .center{margin:0 auto;text-align:center}
-.thanks-text{
-    color:inherit;
-    margin:20px auto 30px;
-    max-width:680px;
-    font-weight:400;
-    font-size:17px;
-    line-height:1.7;
-}
-.sponsor-item{display:flex;margin-top:10px;font-size:18px;align-items:center}
-
-.light-mode .resume-img{background:url(../img/download-cloud.svg) no-repeat}
 
 /* ----- Home hero (matches blog-hero typography) ----- */
 .home-shell{
@@ -180,17 +182,26 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     border:1px solid var(--line);
     border-radius:999px;
     background:var(--card);
-    transition:border-color .25s ease,background .25s ease,transform .25s ease;
+    color:var(--soft);
+    transition:color .25s ease,border-color .25s ease,background .25s ease,transform .25s ease;
 }
 .home-social .social-link:hover{
+    color:var(--accent);
     border-color:var(--accent);
     background:var(--card-hover);
     transform:translateY(-2px);
 }
-.home-social .social-link img{
+.social-icon{
+    display:block;
     width:18px;
     height:18px;
-    display:block;
+    background-color:currentColor;
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    mask-position:center;
+    -webkit-mask-size:contain;
+    mask-size:contain;
 }
 .home-cta{margin-top:0}
 
@@ -204,6 +215,94 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     .home-shell{padding-top:104px}
     .home-avatar{width:112px;height:112px}
     .home-social .social-link{width:40px;height:40px}
+}
+
+/* ----- Home hero entrance ----- */
+@keyframes home-rise{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
+}
+.home-hero > *{
+    opacity:0;
+    animation:home-rise .55s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.home-hero > .home-avatar-link{animation-delay:.05s}
+.home-hero > .eyebrow       {animation-delay:.18s}
+.home-hero > .home-title    {animation-delay:.26s}
+.home-hero > .home-intro    {animation-delay:.36s}
+.home-hero > .home-social   {animation-delay:.46s}
+.home-hero > .home-cta      {animation-delay:.56s}
+
+/* ----- Cross-page view transition ----- */
+@view-transition{navigation:auto}
+::view-transition-old(root),
+::view-transition-new(root){
+    animation-duration:.35s;
+    animation-timing-function:cubic-bezier(.2,.7,.2,1);
+}
+
+@media (prefers-reduced-motion:reduce){
+    .home-hero > *{opacity:1;animation:none}
+    ::view-transition-old(root),
+    ::view-transition-new(root){animation:none}
+}
+
+/* ============================================================
+   Projects page — adapts post-card for repo cards
+   ============================================================ */
+.project-card .post-date{color:var(--accent)}
+.project-card-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    align-items:center;
+    margin-top:22px;
+}
+.project-card-links .read-more{margin-top:0}
+.project-card-links .project-secondary{color:var(--soft)}
+.project-card-links .project-secondary:hover{color:var(--fg)}
+
+/* ============================================================
+   Site footer
+   ============================================================ */
+.site-footer{
+    border-top:1px solid var(--line);
+    margin-top:64px;
+    padding:28px 22px;
+}
+.site-footer-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+    justify-content:space-between;
+}
+.site-footer-meta{
+    font-family:'Quicksand',sans-serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin:0;
+}
+.site-footer-nav{display:flex;gap:22px}
+.site-footer-nav a{
+    font-family:'Quicksand',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--soft);
+    transition:color .2s ease;
+}
+.site-footer-nav a:hover{color:var(--accent)}
+
+@media (max-width:480px){
+    .site-footer{padding:24px 16px}
+    .site-footer-nav{gap:16px}
 }
 
 /* ============================================================

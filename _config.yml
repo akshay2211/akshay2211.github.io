@@ -77,4 +77,3 @@ exclude:
   - LICENSE
   - .idea
   - .DS_Store
-  - test.json
