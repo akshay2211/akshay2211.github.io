@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Universal Context Pipeline banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7F77DD"/>
+      <stop offset="1" stop-color="#AFA9EC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="6" fill="url(#accent)"/>
+
+  <text x="80" y="170" font-family="sans-serif" font-size="64" font-weight="700" fill="#e6edf3">Universal Context Pipeline</text>
+  <text x="82" y="220" font-family="sans-serif" font-size="26" fill="#7d8590">A local-first MCP server, grounding LLMs in your own files.</text>
+
+  <!-- mock card: an MCP tool call + hybrid retrieval + cited results -->
+  <g transform="translate(80,280)">
+    <rect width="1040" height="300" rx="16" fill="#0d1117" stroke="#21262d"/>
+    <rect width="1040" height="3" rx="1.5" fill="url(#accent)"/>
+
+    <!-- Tool header -->
+    <g transform="translate(40,40)" font-family="sans-serif">
+      <text font-size="11" letter-spacing="2" fill="#7d8590">MCP TOOL</text>
+      <text y="26" font-size="22" font-weight="700" fill="#e6edf3">search_local_context</text>
+      <text y="56" font-family="JetBrains Mono, Menlo, monospace" font-size="14" fill="#AFA9EC">"how does the rate limiter handle backpressure?"</text>
+    </g>
+
+    <line x1="40" x2="1000" y1="118" y2="118" stroke="#21262d"/>
+
+    <!-- Hybrid retrieval pipeline -->
+    <g transform="translate(40,138)" font-family="sans-serif">
+      <text font-size="11" letter-spacing="2" fill="#7d8590">HYBRID RETRIEVAL</text>
+
+      <g transform="translate(0,20)">
+        <rect width="230" height="36" rx="6" fill="#161b22" stroke="#21262d"/>
+        <text x="14" y="23" font-size="13" fill="#c9d1d9">BM25 · SQLite FTS5</text>
+      </g>
+      <g transform="translate(250,20)">
+        <rect width="230" height="36" rx="6" fill="#161b22" stroke="#21262d"/>
+        <text x="14" y="23" font-size="13" fill="#c9d1d9">Vector · sqlite-vec</text>
+      </g>
+      <g transform="translate(500,20)">
+        <rect width="300" height="36" rx="6" fill="#1d1a3a" stroke="#7F77DD"/>
+        <text x="14" y="23" font-size="13" fill="#AFA9EC">Reciprocal-rank fusion</text>
+      </g>
+      <g transform="translate(820,20)">
+        <rect width="180" height="36" rx="6" fill="#161b22" stroke="#21262d"/>
+        <text x="14" y="23" font-size="13" fill="#c9d1d9">Cited snippets</text>
+      </g>
+    </g>
+
+    <!-- Citations -->
+    <g transform="translate(40,220)" font-family="sans-serif">
+      <text font-size="11" letter-spacing="2" fill="#7d8590">RESULTS</text>
+
+      <g transform="translate(0,20)">
+        <text font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#7F77DD">src/rate_limiter.rs:42–58</text>
+        <text y="20" font-size="14" fill="#c9d1d9">"refill rate halves when the queue depth exceeds the soft cap…"</text>
+      </g>
+      <g transform="translate(540,20)">
+        <text font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#7F77DD">notes/backpressure.md:11–24</text>
+        <text y="20" font-size="14" fill="#c9d1d9">"token-bucket alone won't drop oldest first, so…"</text>
+      </g>
+    </g>
+  </g>
+</svg>
