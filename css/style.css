@@ -106,21 +106,6 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
    Home page layout
    ============================================================ */
 .center{margin:0 auto;text-align:center}
-.vertical-center{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-}
-.spacing{margin-top:5vh;margin-bottom:10vh}
-
-.title-desc{
-    margin:20px auto 30px;
-    max-width:480px;
-    font-weight:400;
-    font-size:17px;
-    line-height:1.7;
-    color:var(--muted);
-}
 .thanks-text{
     color:inherit;
     margin:20px auto 30px;
@@ -132,6 +117,94 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 .sponsor-item{display:flex;margin-top:10px;font-size:18px;align-items:center}
 
 .light-mode .resume-img{background:url(../img/download-cloud.svg) no-repeat}
+
+/* ----- Home hero (matches blog-hero typography) ----- */
+.home-shell{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding-top:140px;
+    padding-bottom:80px;
+}
+.home-hero{
+    margin:0 auto;
+    max-width:680px;
+    text-align:center;
+}
+.home-avatar-link{
+    display:inline-block;
+    margin-bottom:32px;
+    border-radius:50%;
+    transition:transform .25s ease;
+}
+.home-avatar-link:hover{transform:translateY(-2px)}
+.home-avatar{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:0 auto;
+    border:1px solid var(--line-strong);
+    box-shadow:0 24px 60px -32px rgba(0,0,0,.55);
+}
+.home-title{
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    font-weight:200;
+    line-height:1.1;
+    margin:0 auto 22px !important;
+    text-align:center !important;
+    letter-spacing:-.5px;
+}
+.home-intro{
+    font-size:17px;
+    line-height:1.75;
+    margin:0 auto 36px;
+    max-width:560px;
+    color:var(--muted);
+}
+.home-social{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    margin:0 auto 36px;
+}
+.home-social .social-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--card);
+    transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.home-social .social-link:hover{
+    border-color:var(--accent);
+    background:var(--card-hover);
+    transform:translateY(-2px);
+}
+.home-social .social-link img{
+    width:18px;
+    height:18px;
+    display:block;
+}
+.home-cta{margin-top:0}
+
+@media (max-width:760px){
+    .home-shell{padding-top:120px;padding-bottom:60px}
+    .home-avatar{width:128px;height:128px}
+    .home-avatar-link{margin-bottom:26px}
+    .home-intro{font-size:16px}
+}
+@media (max-width:480px){
+    .home-shell{padding-top:104px}
+    .home-avatar{width:112px;height:112px}
+    .home-social .social-link{width:40px;height:40px}
+}
 
 /* ============================================================
    Page shell (shared by blog list + post)

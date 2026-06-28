@@ -25,8 +25,8 @@ function loadSocialIcons() {
     var html = "";
     for (var i = 0; i < socialtags.length; i++) {
         var s = socialtags[i];
-        html += '<a class="center" href="' + s.link + '" rel="me noopener" target="_blank" aria-label="' + s.label + '">' +
-                '<img class="center" style="padding: 5px!important;width: 40px;" src="' + s.img + '" alt="' + s.label + '">' +
+        html += '<a class="social-link" href="' + s.link + '" rel="me noopener" target="_blank" aria-label="' + s.label + '">' +
+                '<img src="' + s.img + '" alt="' + s.label + '">' +
                 '</a>';
     }
     el.innerHTML = html;
