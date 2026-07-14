@@ -21,6 +21,18 @@
     {%- endfor -%}
     {%- endif -%}
 
+    {%- if site.google_analytics and site.google_analytics != "G-XXXXXXXXXX" and jekyll.environment == "production" -%}
+    <!-- Google Analytics 4 -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
+    {%- endif -%}
+
     <link rel="shortcut icon" href="{{ '/img/favicon.ico' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/img/akshay.jpg' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
