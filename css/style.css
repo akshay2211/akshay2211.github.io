@@ -123,6 +123,7 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 /* ----- Home hero (matches blog-hero typography) ----- */
 .home-shell{
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     min-height:100vh;
@@ -204,6 +205,49 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     mask-size:contain;
 }
 .home-cta{margin-top:0}
+.home-consult-wrap{
+    margin-top:52px;
+    opacity:0;
+    animation:home-rise .55s cubic-bezier(.2,.7,.2,1) .66s forwards;
+}
+.home-consult{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 16px;
+    font-size:13.5px;
+    line-height:1;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--card);
+    transition:color .25s ease,border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.home-consult:hover{
+    color:var(--fg);
+    border-color:var(--line-strong);
+    background:var(--card-hover);
+    transform:translateY(-2px);
+}
+.home-consult strong{color:var(--accent);font-weight:600}
+.home-consult-arrow{color:var(--accent);transition:transform .25s ease}
+.home-consult:hover .home-consult-arrow{transform:translateX(3px)}
+.home-consult-dot{
+    flex:none;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    animation:consult-pulse 2s ease-out infinite;
+}
+@keyframes consult-pulse{
+    0%{box-shadow:0 0 0 0 rgba(233,196,106,.5)}
+    70%{box-shadow:0 0 0 6px rgba(233,196,106,0)}
+    100%{box-shadow:0 0 0 0 rgba(233,196,106,0)}
+}
+@media (prefers-reduced-motion:reduce){
+    .home-consult-dot{animation:none}
+}
 
 @media (max-width:760px){
     .home-shell{padding-top:120px;padding-bottom:60px}
