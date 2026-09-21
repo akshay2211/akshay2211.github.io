@@ -118,24 +118,24 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 .home-shell{
     display:block;
     max-width:var(--width-content);
-    padding-top:calc(var(--space-9) + var(--space-2));
+    padding-top:calc(var(--space-9) + var(--space-6));
     padding-bottom:var(--space-8);
 }
 .home-hero{
-    margin:0 auto var(--space-8);
-    max-width:680px;
+    margin:0 auto var(--space-9);
+    max-width:700px;
     text-align:center;
 }
 .home-avatar-link{
     display:inline-block;
-    margin-bottom:var(--space-5);
+    margin-bottom:var(--space-6);
     border-radius:50%;
     transition:transform var(--dur-base) var(--ease-out);
 }
-.home-avatar-link:hover{transform:translateY(-2px)}
+.home-avatar-link:hover{transform:translateY(-3px)}
 .home-avatar{
-    width:104px;
-    height:104px;
+    width:120px;
+    height:120px;
     border-radius:50%;
     object-fit:cover;
     margin:0 auto;
@@ -144,18 +144,18 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 }
 .home-title{
     font-family:var(--font-sans);
-    font-size:clamp(2rem,5vw,3.2rem);
+    font-size:clamp(2.6rem,6vw,3.9rem);
     font-weight:300;
     line-height:var(--leading-tight);
-    margin:0 auto var(--space-4) !important;
+    margin:0 auto var(--space-5) !important;
     text-align:center !important;
     letter-spacing:var(--tracking-display);
 }
 .home-intro{
-    font-size:var(--text-base);
+    font-size:var(--text-lg);
     line-height:var(--leading-relaxed);
-    margin:0 auto var(--space-5);
-    max-width:600px;
+    margin:0 auto var(--space-6);
+    max-width:620px;
     color:var(--muted);
 }
 .home-intro strong{color:var(--fg);font-weight:600}
@@ -667,12 +667,13 @@ html[data-theme-transition]::view-transition-new(root){
     border-radius:var(--radius-lg);
     padding:var(--space-6);
     overflow:hidden;
-    transition:border-color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out);
+    transition:border-color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);
 }
 .post-card:hover{
     border-color:var(--line-strong);
     background:var(--card-hover);
     box-shadow:var(--shadow-card);
+    transform:translateY(-3px);
 }
 .post-card-image-link{display:block;margin:calc(-1 * var(--space-6)) calc(-1 * var(--space-6)) var(--space-5)}
 .post-card-image{
@@ -1232,4 +1233,65 @@ html[data-theme-transition]::view-transition-new(root){
 .post-hero .gen-banner{
     border:1px solid var(--line);
     border-radius:var(--radius-lg);
+}
+
+/* ============================================================
+   Appeal + motion pass (tasteful, all gated by reduced-motion)
+   ============================================================ */
+
+/* Film-grain overlay — adds texture to the flat theme (brief W8).
+   High z-index, pointer-events:none, ~2.5% opacity. */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    pointer-events:none;
+    opacity:.028;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.light-mode::after{mix-blend-mode:multiply;opacity:.035}
+
+/* Underline-draw on section + footer links */
+.home-section-link,
+.site-footer-nav a{
+    background-image:linear-gradient(currentColor,currentColor);
+    background-repeat:no-repeat;
+    background-position:0 100%;
+    background-size:0% 1px;
+    transition:color var(--dur-fast) var(--ease-out),background-size var(--dur-base) var(--ease-out);
+}
+.home-section-link:hover,
+.site-footer-nav a:hover{background-size:100% 1px}
+
+@media (prefers-reduced-motion:no-preference){
+    /* Homepage load entrance — gentle staggered rise */
+    .home-hero,
+    .home-section,
+    .home-hire{animation:rise-in var(--dur-slow) var(--ease-out) both}
+    .home-shell > section:nth-of-type(1){animation-delay:40ms}
+    .home-shell > section:nth-of-type(2){animation-delay:150ms}
+    .home-shell > section:nth-of-type(3){animation-delay:240ms}
+    .home-shell > section:nth-of-type(4){animation-delay:320ms}
+
+    /* Scroll-reveal for cards as they enter the viewport.
+       Hidden state lives only in the keyframe, so browsers without
+       view() timelines show everything immediately. */
+    @supports (animation-timeline:view()){
+        .post-card,
+        .project-card{
+            animation:card-rise linear both;
+            animation-timeline:view();
+            animation-range:entry 4% cover 18%;
+        }
+    }
+}
+
+@keyframes rise-in{
+    from{opacity:0;transform:translateY(14px)}
+    to{opacity:1;transform:none}
+}
+@keyframes card-rise{
+    from{opacity:0;translate:0 16px}
 }
