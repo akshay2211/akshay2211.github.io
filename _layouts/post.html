@@ -25,6 +25,10 @@ layout: default
             {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
         </ul>
         {% endif %}
+        <aside class="post-hire" aria-label="Work with Redigit">
+            <p class="post-hire-text">This is the kind of work I do for a living. <strong>Redigit</strong> builds Kotlin Multiplatform and Android products for teams — cross-platform migrations, libraries, and the hard parts of the shared module.</p>
+            <a class="post-hire-cta" href="{{ '/hire/' | relative_url }}">Work with Redigit</a>
+        </aside>
         <meta itemprop="author" content="{{ page.author | default: site.author.name }}">
         <meta itemprop="dateModified" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
     </article>
