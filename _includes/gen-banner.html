@@ -1,0 +1,9 @@
+{% comment %}
+  Generated post banner — the automatic fallback when a post has no hand-made
+  `image`. Themed via tokens (works in light and dark), no build step, no deps.
+  Params: title (required), tag, date, alt.
+{% endcomment %}<div class="gen-banner" role="img" aria-label="{{ include.alt | default: include.title | escape }}">
+    <span class="gen-banner-eyebrow">{% if include.tag %}{{ include.tag }}{% endif %}{% if include.tag and include.date %} · {% endif %}{% if include.date %}{{ include.date }}{% endif %}</span>
+    <span class="gen-banner-title">{{ include.title }}</span>
+    <span class="gen-banner-mark">ak1.io</span>
+</div>

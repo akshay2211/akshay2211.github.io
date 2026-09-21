@@ -12,11 +12,15 @@ layout: default
         {% if page.description %}
         <p class="post-summary" itemprop="description">{{ page.description }}</p>
         {% endif %}
+        <figure class="post-hero" style="view-transition-name:banner-{{ page.slug }}">
         {% if page.image %}
-        <figure class="post-hero">
-            <img class="post-hero-image" itemprop="image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" style="view-transition-name:banner-{{ page.slug }}">
-        </figure>
+            <img class="post-hero-image" itemprop="image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+        {% else %}
+            {% assign gb_date = page.date | date: "%b %Y" %}
+            {% assign gb_tag = page.tags | first %}
+            {% include gen-banner.html title=page.title tag=gb_tag date=gb_date alt=page.title %}
         {% endif %}
+        </figure>
         <div class="post-content" id="post-content" itemprop="articleBody">
             {{ content }}
         </div>
