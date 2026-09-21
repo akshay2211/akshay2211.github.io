@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Projects
-description: A small set of open-source projects I maintain — Kotlin Multiplatform libraries and Rust tooling for things I actually use.
+description: Open-source Kotlin Multiplatform libraries and Rust tooling I build and maintain — with install lines, versions, and live star counts.
 permalink: /projects/
 ---
 <script type="application/ld+json">
@@ -17,10 +17,11 @@ permalink: /projects/
         {
             "@type": "SoftwareSourceCode",
             "name": {{ p.name | jsonify }},
-            "description": {{ p.description | jsonify }},
+            "description": {{ p.summary | jsonify }},
             "codeRepository": {{ p.repo | jsonify }},
             "url": {{ p.repo | jsonify }},
             {% if p.lang %}"programmingLanguage": {{ p.lang | jsonify }},{% endif %}
+            {% if p.version %}"softwareVersion": {{ p.version | jsonify }},{% endif %}
             "author": { "@type": "Person", "name": "{{ site.author.name }}", "url": "{{ site.url }}" }{% if p.post %},
             "subjectOf": { "@type": "BlogPosting", "url": "{{ p.post | absolute_url }}" }{% endif %}
         }{% unless forloop.last %},{% endunless %}
@@ -32,23 +33,96 @@ permalink: /projects/
 <section class="blog-hero">
     <p class="eyebrow">Work</p>
     <h1>Projects</h1>
-    <p class="blog-intro">A small set of open-source things I build and maintain — Kotlin Multiplatform libraries and Rust tooling for problems I kept running into.</p>
+    <p class="blog-intro">Open-source libraries and tools I build and maintain — Kotlin Multiplatform for Android, iOS, Web, and Desktop, plus Rust tooling for problems I kept running into.</p>
 </section>
 
-<section class="post-list" aria-label="Projects">
-    {% assign projects = site.data.projects | default: empty %}
-    {% for p in site.data.projects %}
-    <article class="post-card project-card">
-        <div class="post-card-body">
-            <p class="post-date">{{ p.stack }}</p>
-            <h2 class="post-card-title"><a href="{{ p.repo }}" rel="noopener" target="_blank">{{ p.name }}</a></h2>
-            <p class="post-card-excerpt">{{ p.description }}</p>
-            <div class="project-card-links">
-                <a class="read-more" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub <span aria-hidden="true">&rarr;</span></a>
-                {% if p.post %}<a class="read-more project-secondary" href="{{ p.post | relative_url }}">Read the story <span aria-hidden="true">&rarr;</span></a>{% endif %}
+{% assign libraries = site.data.projects | where_exp: "p", "p.type != 'experiment'" %}
+{% assign experiments = site.data.projects | where: "type", "experiment" %}
+
+{% comment %} ---- reusable card via include-less loop ---- {% endcomment %}
+{% assign now_s = 'now' | date: '%s' %}
+
+<section class="project-group" aria-labelledby="libraries-heading">
+    <h2 class="group-heading" id="libraries-heading">Libraries &amp; tools</h2>
+    <p class="group-note">Installable, versioned, and maintained.</p>
+    <div class="post-list" role="list">
+    {% for p in libraries %}
+        {% assign s = site.data.stats[p.key] %}
+        <article class="post-card project-card" role="listitem">
+            <div class="post-card-body">
+                <p class="post-date">{{ p.tags | join: ' · ' }}</p>
+                <h3 class="post-card-title"><a href="{{ p.repo }}" rel="noopener" target="_blank">{{ p.name }}</a></h3>
+                {% if p.platforms %}
+                <ul class="platform-badges" aria-label="Platforms">
+                    {% for plat in p.platforms %}<li class="platform-badge platform-{{ plat }}">{% case plat %}{% when 'ios' %}iOS{% when 'cli' %}CLI{% else %}{{ plat | capitalize }}{% endcase %}</li>{% endfor %}
+                </ul>
+                {% endif %}
+                <p class="post-card-excerpt">{{ p.summary }}</p>
+                {% if p.install %}
+                <div class="install-line">
+                    <code class="install-code">{{ p.install }}</code>
+                    <button type="button" class="copy-btn" data-copy="{{ p.install | escape }}" aria-label="Copy install command">
+                        <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    </button>
+                </div>
+                {% endif %}
+                <div class="project-meta">
+                    {% if s.stars and s.stars > 0 %}
+                    <span class="meta-stat" title="GitHub stars"><svg class="meta-star" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 21.2l1.4-6.8L2.2 9.7l6.9-.7z"/></svg>{{ s.stars }}</span>
+                    {% endif %}
+                    {% if p.version %}<span class="meta-stat">v{{ p.version }}</span>{% endif %}
+                    {% if s.pushed_at %}
+                        {% assign push_s = s.pushed_at | date: '%s' %}
+                        {% assign days = now_s | minus: push_s | divided_by: 86400 %}
+                        <span class="meta-stat meta-fresh">updated
+                        {%- if days <= 0 %} today
+                        {%- elsif days == 1 %} yesterday
+                        {%- elsif days < 30 %} {{ days }} days ago
+                        {%- elsif days < 60 %} last month
+                        {%- elsif days < 365 %} {{ days | divided_by: 30 }} months ago
+                        {%- elsif days < 730 %} last year
+                        {%- else %} {{ days | divided_by: 365 }} years ago{%- endif %}</span>
+                    {% endif %}
+                </div>
+                <div class="project-card-links">
+                    <a class="read-more" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub</a>
+                    {% if p.post %}<a class="read-more project-secondary" href="{{ p.post | relative_url }}">Read the story</a>{% endif %}
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
     {% endfor %}
+    </div>
+</section>
+
+<section class="project-group" aria-labelledby="experiments-heading">
+    <h2 class="group-heading" id="experiments-heading">Experiments &amp; samples</h2>
+    <p class="group-note">Apps I built to learn something or answer a question — not maintained as products.</p>
+    <div class="post-list" role="list">
+    {% for p in experiments %}
+        {% assign s = site.data.stats[p.key] %}
+        <article class="post-card project-card" role="listitem">
+            <div class="post-card-body">
+                <p class="post-date">{{ p.tags | join: ' · ' }}</p>
+                <h3 class="post-card-title"><a href="{{ p.repo }}" rel="noopener" target="_blank">{{ p.name }}</a></h3>
+                {% if p.platforms %}
+                <ul class="platform-badges" aria-label="Platforms">
+                    {% for plat in p.platforms %}<li class="platform-badge platform-{{ plat }}">{% case plat %}{% when 'ios' %}iOS{% when 'cli' %}CLI{% else %}{{ plat | capitalize }}{% endcase %}</li>{% endfor %}
+                </ul>
+                {% endif %}
+                <p class="post-card-excerpt">{{ p.summary }}</p>
+                <div class="project-meta">
+                    {% if s.stars and s.stars > 0 %}
+                    <span class="meta-stat" title="GitHub stars"><svg class="meta-star" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 21.2l1.4-6.8L2.2 9.7l6.9-.7z"/></svg>{{ s.stars }}</span>
+                    {% endif %}
+                </div>
+                <div class="project-card-links">
+                    <a class="read-more" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub</a>
+                    {% if p.post %}<a class="read-more project-secondary" href="{{ p.post | relative_url }}">Read the story</a>{% endif %}
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+    </div>
 </section>
 </div>

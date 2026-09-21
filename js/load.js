@@ -47,7 +47,37 @@ function updateHeaderScrollState() {
     document.body.classList.toggle("scrolled", scrolled);
 }
 
+function initCopyButtons() {
+    document.addEventListener("click", function (e) {
+        var btn = e.target.closest(".copy-btn");
+        if (!btn) return;
+        var text = btn.getAttribute("data-copy");
+        if (!text) return;
+        var done = function () {
+            btn.classList.add("copied");
+            btn.setAttribute("aria-label", "Copied");
+            window.setTimeout(function () {
+                btn.classList.remove("copied");
+                btn.setAttribute("aria-label", "Copy install command");
+            }, 1400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done).catch(function () {});
+        } else {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand("copy"); done(); } catch (err) {}
+            document.body.removeChild(ta);
+        }
+    });
+}
+
 checkDayNight();
 loadSocialIcons();
 updateHeaderScrollState();
+initCopyButtons();
 window.addEventListener("scroll", updateHeaderScrollState, { passive: true });

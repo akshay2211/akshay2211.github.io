@@ -24,7 +24,7 @@ canonical and safe to cite.
 
 ## Projects
 {% for p in site.data.projects %}
-- [{{ p.name }}]({{ p.repo }}) — {{ p.stack }}. {{ p.description }}{% if p.post %} Background: {{ p.post | absolute_url }}.{% endif %}
+- [{{ p.name }}]({{ p.repo }}) — {{ p.tags | join: ' · ' }}{% if p.version %}, v{{ p.version }}{% endif %}. {{ p.summary }}{% if p.install %} Install: `{{ p.install }}`.{% endif %}{% if p.post %} Background: {{ p.post | absolute_url }}.{% endif %}
 {%- endfor %}
 
 ## Recent writing
