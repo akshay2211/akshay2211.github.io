@@ -1,39 +1,71 @@
 ---
 layout: default
-title: Akshay Sharma — Software Architect & Open-Source Developer
+title: Akshay Sharma — Kotlin Multiplatform & Rust Open-Source Developer
 description: >-
-  Akshay Sharma — software architect, open-source maintainer, and Kotlin
-  Multiplatform developer building thoughtful cross-platform apps and libraries
-  for Android, iOS, Web, and Desktop.
+  Akshay Sharma builds open-source Kotlin Multiplatform libraries (DrawBox, Pix,
+  BubbleTabBar) and Rust developer tools, and helps teams ship cross-platform
+  Android and KMP products through Redigit.
 image: /img/akshay.jpg
 keywords:
   - Akshay Sharma
-  - Software Architect
   - Kotlin Multiplatform
-  - Jetpack Compose
-  - Cross-Platform Development
-  - Android Developer
-  - iOS Developer
-  - Open Source
   - Compose Multiplatform
-  - Mobile Development
+  - Rust developer tools
+  - Android library author
+  - DrawBox
+  - Open Source
+  - Redigit
 ---
 <div class="page-shell home-shell">
     <section class="home-hero">
         <a class="home-avatar-link" href="https://github.com/akshay2211" rel="me noopener" target="_blank" aria-label="GitHub profile">
-            <img class="home-avatar" src="https://github.com/akshay2211.png" alt="Akshay Sharma" width="160" height="160" loading="eager">
+            <img class="home-avatar" src="https://github.com/akshay2211.png" alt="Akshay Sharma" width="104" height="104" loading="eager">
         </a>
-        <p class="eyebrow">Hello, world</p>
-        <h1 class="home-title">Hi, I'm Akshay</h1>
-        <p class="home-intro">Software architect, open-source maintainer, and Kotlin Multiplatform developer — building thoughtful cross-platform apps and libraries for Android, iOS, Web, and Desktop.</p>
+        <h1 class="home-title">Akshay Sharma</h1>
+        <p class="home-intro">I build open-source <strong>Kotlin Multiplatform libraries</strong> and <strong>Rust developer tools</strong> — used across Android, iOS, web, and desktop. Through <strong>Redigit</strong>, I help teams ship cross-platform products without breaking the APIs their users depend on.</p>
         <div class="home-social" id="social-list" aria-label="Social links"></div>
-        <a class="read-more home-cta" href="{{ '/blog/' | relative_url }}">Read the journal <span aria-hidden="true">&rarr;</span></a>
     </section>
-    <div class="home-consult-wrap">
-        <a class="home-consult" href="https://redigit.io" rel="noopener" target="_blank">
-            <span class="home-consult-dot" aria-hidden="true"></span>
-            Available for consulting &amp; custom software via <strong>Redigit</strong>
-            <span class="home-consult-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-    </div>
+
+    {% assign featured = site.data.projects | where: "featured", true %}
+    <section class="home-section" aria-labelledby="selected-work">
+        <div class="home-section-head">
+            <h2 id="selected-work">Selected work</h2>
+            <a class="home-section-link" href="{{ '/projects/' | relative_url }}">All projects &rarr;</a>
+        </div>
+        <div class="home-work">
+            {% for p in featured %}
+            {% assign s = site.data.stats[p.key] %}
+            <a class="home-work-item" href="{{ p.repo }}" rel="noopener" target="_blank">
+                <div class="home-work-top">
+                    <h3 class="home-work-name">{{ p.name }}</h3>
+                    <span class="home-work-tags">{{ p.tags | join: ' · ' }}{% if s.stars and s.stars > 0 %} · ★ {{ s.stars }}{% endif %}</span>
+                </div>
+                <p class="home-work-summary">{{ p.summary }}</p>
+                {% if p.install %}<code class="home-work-coord">{{ p.install }}</code>{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="recent-writing">
+        <div class="home-section-head">
+            <h2 id="recent-writing">Recent writing</h2>
+            <a class="home-section-link" href="{{ '/blog/' | relative_url }}">All posts</a>
+        </div>
+        <div class="home-posts">
+            {% for post in site.posts limit:2 %}
+            <a class="home-post" href="{{ post.url | relative_url }}">
+                <h3 class="home-post-title">{{ post.title }}</h3>
+                <time class="home-post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="home-hire" aria-labelledby="hire-heading">
+        <p class="home-hire-eyebrow"><span class="home-hire-dot" aria-hidden="true"></span> Available for work</p>
+        <h2 id="hire-heading">Hire Redigit for cross-platform engineering</h2>
+        <p>Redigit is my consulting studio for Kotlin Multiplatform and Android work — audits, fixed-scope builds, and retained engineering time. We rewrote a working Android library for four platforms without breaking its public API; that is the kind of migration we do.</p>
+        <a class="home-hire-cta" href="https://redigit.io" rel="noopener" target="_blank">Start a conversation <span class="home-consult-arrow" aria-hidden="true">&rarr;</span></a>
+    </section>
 </div>
