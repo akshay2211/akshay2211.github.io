@@ -1,0 +1,161 @@
+/* ============================================================
+   Design tokens — the single source of truth.
+   No raw hex, px font-size, or magic spacing outside this file.
+
+   Colour: Radix "Sand" 12-step scales (matched light/dark, contrast
+   guaranteed) for neutrals; a hand-tuned OKLCH gold for the accent.
+   Type:   Inter (UI/headings) + Newsreader (post body) + JetBrains Mono.
+   ============================================================ */
+
+/* ----- Self-hosted fonts (variable, woff2) ----- */
+@font-face{
+    font-family:'Inter';
+    font-style:normal;
+    font-weight:100 900;
+    font-display:swap;
+    src:url('/fonts/Inter-var.woff2') format('woff2');
+}
+@font-face{
+    font-family:'Newsreader';
+    font-style:normal;
+    font-weight:200 800;
+    font-display:swap;
+    src:url('/fonts/Newsreader-var.woff2') format('woff2');
+}
+@font-face{
+    font-family:'Newsreader';
+    font-style:italic;
+    font-weight:200 800;
+    font-display:swap;
+    src:url('/fonts/Newsreader-italic-var.woff2') format('woff2');
+}
+@font-face{
+    font-family:'JetBrains Mono';
+    font-style:normal;
+    font-weight:100 800;
+    font-display:swap;
+    src:url('/fonts/JetBrainsMono-var.woff2') format('woff2');
+}
+
+:root{
+    /* ----- Radix Sand (dark) — neutral scale ----- */
+    --sand-1:#111110;
+    --sand-2:#191918;
+    --sand-3:#222221;
+    --sand-4:#2a2a28;
+    --sand-5:#31312e;
+    --sand-6:#3b3a37;
+    --sand-7:#494844;
+    --sand-8:#62605b;
+    --sand-9:#6f6d66;
+    --sand-10:#7c7b74;
+    --sand-11:#b5b3ad;
+    --sand-12:#eeeeec;
+
+    /* ----- Accent — gold (OKLCH, tuned for dark) ----- */
+    --accent:oklch(0.83 0.11 86);        /* solid gold, ~#e9c46a */
+    --accent-text:oklch(0.86 0.11 88);   /* accent as text on dark */
+    --accent-contrast:#1d1e21;           /* text on an accent fill */
+
+    /* ----- Elevation ----- */
+    --shadow-card:0 18px 40px -28px rgba(0,0,0,.55);
+    --shadow-avatar:0 24px 60px -32px rgba(0,0,0,.55);
+
+    /* ----- Type families ----- */
+    --font-sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --font-mono:'JetBrains Mono',ui-monospace,'Menlo',monospace;
+
+    /* ----- Modular type scale (base 17px, ratio ~1.2) ----- */
+    --text-xs:0.75rem;      /* 12px — eyebrows, meta */
+    --text-sm:0.8125rem;    /* 13px — nav, pills */
+    --text-md:0.9375rem;    /* 15px — secondary body */
+    --text-base:1.0625rem;  /* 17px — body */
+    --text-lg:1.25rem;      /* 20px — h3 */
+    --text-xl:1.5rem;       /* 24px — card titles, h2 */
+    --text-2xl:1.75rem;     /* 28px — post h2 */
+    --text-display:clamp(2.4rem,6vw,4.2rem); /* hero / page titles */
+    --text-display-sm:clamp(2.1rem,5.5vw,4rem);
+
+    /* ----- Line-heights ----- */
+    --leading-tight:1.1;
+    --leading-snug:1.35;
+    --leading-normal:1.6;
+    --leading-relaxed:1.75;   /* sans long-form */
+    --leading-serif:1.85;     /* serif body — slightly more */
+
+    /* ----- Letter-spacing ----- */
+    --tracking-display:-0.02em;
+    --tracking-tight:-0.01em;
+    --tracking-wide:0.02em;
+    --tracking-eyebrow:0.25em;
+
+    /* ----- Spacing scale (4px base) ----- */
+    --space-1:0.25rem;
+    --space-2:0.5rem;
+    --space-3:0.75rem;
+    --space-4:1rem;
+    --space-5:1.5rem;
+    --space-6:2rem;
+    --space-7:3rem;
+    --space-8:4rem;
+    --space-9:6rem;
+
+    /* ----- Radii ----- */
+    --radius-sm:4px;
+    --radius-md:8px;
+    --radius-lg:14px;
+    --radius-pill:999px;
+
+    /* ----- Layout widths ----- */
+    --measure:640px;      /* readable line length */
+    --width-content:920px;
+    --width-wide:1180px;
+
+    /* ----- Motion (see MOTION.md §1) ----- */
+    --ease-out:cubic-bezier(0.22,1,0.36,1);
+    --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+    --dur-instant:90ms;
+    --dur-fast:160ms;
+    --dur-base:260ms;
+    --dur-slow:420ms;
+}
+
+/* ----- Semantic surface / text tokens ------------------------------------
+   Declared on `body` (not :root) on purpose: var() substitution resolves
+   against the element where the custom property is declared, so putting these
+   here lets them recompute against body's themed Sand scale in light mode.
+   ------------------------------------------------------------------------- */
+body{
+    --bg:var(--sand-1);
+    --fg:var(--sand-12);
+    --muted:var(--sand-11);
+    --soft:var(--sand-10);
+    --line:var(--sand-6);
+    --line-strong:var(--sand-8);
+    --card:var(--sand-2);
+    --card-hover:var(--sand-3);
+}
+
+/* ----- Radix Sand (light) + light-tuned accent ----- */
+body.light-mode{
+    --sand-1:#fdfdfc;
+    --sand-2:#f9f9f8;
+    --sand-3:#f1f0ef;
+    --sand-4:#e9e8e6;
+    --sand-5:#e2e1de;
+    --sand-6:#dad9d6;
+    --sand-7:#cfceca;
+    --sand-8:#bcbbb5;
+    --sand-9:#8d8d86;
+    --sand-10:#82827c;
+    --sand-11:#63635e;
+    --sand-12:#21201c;
+
+    --accent:oklch(0.62 0.11 75);        /* darker gold, ~#b8862f, AA on light */
+    --accent-text:oklch(0.58 0.11 72);
+    --accent-contrast:#fdfdfc;
+
+    --shadow-card:0 18px 40px -30px rgba(29,30,33,.28);
+    --shadow-avatar:0 24px 60px -34px rgba(29,30,33,.30);
+}

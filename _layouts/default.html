@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1d1e21">
+    <meta name="theme-color" content="#111110">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     {%- seo -%}
@@ -37,11 +37,12 @@
     <link rel="apple-touch-icon" href="{{ '/img/akshay.jpg' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="{{ '/fonts/Inter-var.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    {%- if page.layout == 'post' -%}
+    <link rel="preload" href="{{ '/fonts/Newsreader-var.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endif -%}
+    <link href="{{ '/css/tokens.css' | relative_url }}" rel="stylesheet">
     <link href="{{ '/css/style.css' | relative_url }}" rel="stylesheet">
-    <link href="{{ '/css/bootstrap-grid.css' | relative_url }}" rel="stylesheet">
 
     {%- if page.url == '/' -%}
     <script type="application/ld+json">
