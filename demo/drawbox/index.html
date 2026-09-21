@@ -1,0 +1,43 @@
+---
+layout: default
+title: DrawBox — live in your browser
+description: >-
+  DrawBox running in the browser as WebAssembly — the same Kotlin Multiplatform
+  code that ships to Android, iOS, and desktop, compiled to wasm. Draw on it.
+image: /img/banner.png
+permalink: /demo/drawbox/
+---
+<div class="page-shell demo-shell">
+    <section class="blog-hero">
+        <p class="eyebrow">Live demo</p>
+        <h1>DrawBox, in your browser</h1>
+        <p class="blog-intro">The same Kotlin Multiplatform code that ships to Android, iOS, and desktop — compiled to WebAssembly and running right here. Not a video. Draw on it.</p>
+    </section>
+
+    <div class="demo-stage" id="demo-stage">
+        <button type="button" class="demo-launch" id="demo-launch"
+                data-src="{{ '/demo/drawbox/app/index.html' | relative_url }}"
+                aria-label="Launch the interactive DrawBox demo">
+            <span class="demo-launch-grid" aria-hidden="true"></span>
+            <span class="demo-launch-inner">
+                <span class="demo-launch-play" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                <span class="demo-launch-title">Launch interactive demo</span>
+                <span class="demo-launch-note" id="demo-note">~14&nbsp;MB WebAssembly · loads only when you click</span>
+            </span>
+        </button>
+    </div>
+
+    <section class="demo-meta">
+        <p>Compiled with Compose Multiplatform (<code>wasmJs</code>) from the same source set as the Android, iOS, and desktop targets. Source on <a href="https://github.com/akshay2211/DrawBox" rel="noopener" target="_blank">GitHub</a>.</p>
+        <div class="install-line demo-install">
+            <code class="install-code">implementation("io.ak1:drawbox:2.1.0")</code>
+            <button type="button" class="copy-btn" data-copy='implementation("io.ak1:drawbox:2.1.0")' aria-label="Copy install command">
+                <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+        </div>
+    </section>
+</div>
+<script src="{{ '/js/demo.js' | relative_url }}"></script>

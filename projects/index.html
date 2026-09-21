@@ -86,7 +86,8 @@ permalink: /projects/
                     {% endif %}
                 </div>
                 <div class="project-card-links">
-                    <a class="read-more" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub</a>
+                    {% if p.demo %}<a class="read-more" href="{{ p.demo | relative_url }}">Try it live</a>{% endif %}
+                    <a class="read-more{% if p.demo %} project-secondary{% endif %}" href="{{ p.repo }}" rel="noopener" target="_blank">View on GitHub</a>
                     {% if p.post %}<a class="read-more project-secondary" href="{{ p.post | relative_url }}">Read the story</a>{% endif %}
                 </div>
             </div>

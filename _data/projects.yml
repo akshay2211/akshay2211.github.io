@@ -27,6 +27,7 @@
   repo: https://github.com/akshay2211/DrawBox
   install: implementation("io.ak1:drawbox:2.1.0")
   version: "2.1.0"
+  demo: /demo/drawbox/
   post: /blog/2026/06/23/drawbox-goes-multiplatform/
 
 - name: Universal Context Pipeline

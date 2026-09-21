@@ -1295,3 +1295,100 @@ body::after{
 @keyframes card-rise{
     from{opacity:0;translate:0 16px}
 }
+
+/* ============================================================
+   DrawBox live demo (/demo/drawbox/)
+   ============================================================ */
+.demo-shell{max-width:var(--width-content)}
+.demo-stage{
+    position:relative;
+    max-width:960px;
+    margin:0 auto var(--space-6);
+    aspect-ratio:16/10;
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    background:var(--card-hover);
+}
+.demo-launch{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    cursor:pointer;
+    background:var(--card-hover);
+    background-image:
+        linear-gradient(var(--line) 1px,transparent 1px),
+        linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:48px 48px,48px 48px;
+    transition:background-color var(--dur-base) var(--ease-out);
+}
+.demo-launch:hover{background-color:var(--card)}
+.demo-launch-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:var(--space-3);
+    text-align:center;
+    padding:var(--space-5);
+}
+.demo-launch-play{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:64px;height:64px;
+    border-radius:var(--radius-pill);
+    background:var(--accent);
+    color:var(--accent-contrast);
+    box-shadow:var(--shadow-card);
+    transition:transform var(--dur-base) var(--ease-out);
+}
+.demo-launch:hover .demo-launch-play{transform:scale(1.06)}
+.demo-launch-title{
+    font-family:var(--font-sans);
+    font-size:var(--text-lg);
+    font-weight:600;
+    letter-spacing:var(--tracking-tight);
+    color:var(--fg);
+}
+.demo-launch-note{
+    font-family:var(--font-mono);
+    font-size:var(--text-sm);
+    color:var(--soft);
+}
+.demo-stage.is-loading::after{
+    content:"Loading WebAssembly…";
+    position:absolute;
+    inset:auto 0 var(--space-5) 0;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:var(--text-sm);
+    color:var(--soft);
+}
+.demo-frame{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+    background:var(--bg);
+}
+.demo-meta{
+    max-width:960px;
+    margin:0 auto;
+}
+.demo-meta p{
+    font-size:var(--text-md);
+    line-height:var(--leading-normal);
+    color:var(--muted);
+    margin:0 0 var(--space-4);
+}
+.demo-meta .demo-install{max-width:420px;margin:0}
+@media (max-width:760px){
+    .demo-stage{aspect-ratio:4/5}
+}
