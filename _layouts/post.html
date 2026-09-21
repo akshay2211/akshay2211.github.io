@@ -14,7 +14,7 @@ layout: default
         {% endif %}
         {% if page.image %}
         <figure class="post-hero">
-            <img class="post-hero-image" itemprop="image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+            <img class="post-hero-image" itemprop="image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" style="view-transition-name:banner-{{ page.slug }}">
         </figure>
         {% endif %}
         <div class="post-content" id="post-content" itemprop="articleBody">

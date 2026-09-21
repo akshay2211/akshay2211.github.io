@@ -85,6 +85,7 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
     align-items:center;
 }
 .site-nav a{
+    position:relative;
     font-family:var(--font-sans);
     font-size:var(--text-sm);
     font-weight:500;
@@ -96,6 +97,16 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 .site-nav a.is-current{
     opacity:1;
     color:var(--accent-text);
+}
+.site-nav a.is-current::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;
+    bottom:-6px;
+    height:2px;
+    border-radius:1px;
+    background:var(--accent);
+    view-transition-name:nav-indicator;
 }
 
 /* ============================================================
@@ -377,6 +388,17 @@ body.light-mode > header button{background:url(../img/moon.svg) no-repeat center
 ::view-transition-new(root){
     animation-duration:var(--dur-slow);
     animation-timing-function:var(--ease-in-out);
+}
+/* Persistent chrome stays put instead of cross-fading between pages */
+body > header{view-transition-name:site-header}
+.site-footer{view-transition-name:site-footer}
+
+/* Theme toggle owns the root transition (circular reveal in js/load.js);
+   suppress the page cross-fade only while the toggle is running. */
+html[data-theme-transition]::view-transition-old(root),
+html[data-theme-transition]::view-transition-new(root){
+    animation:none;
+    mix-blend-mode:normal;
 }
 
 /* ============================================================

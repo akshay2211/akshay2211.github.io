@@ -18,7 +18,7 @@ function loadSocialIcons() {
     el.innerHTML = html;
 }
 
-function dayNightToggle() {
+function applyThemeToggle() {
     document.body.classList.toggle("light-mode");
     if (window.localStorage.getItem("light-mode") == "light") {
         window.localStorage.clear();
@@ -30,6 +30,33 @@ function dayNightToggle() {
         var theme = document.body.classList.contains("light-mode") ? themes.light : themes.dark;
         window.dispatchEvent(new CustomEvent("giscus-theme-change", { detail: { theme: theme } }));
     }
+}
+
+// Origin-aware theme change: the new theme expands as a circle from the
+// toggle button. Falls back to an instant swap where View Transitions or
+// reduced-motion apply. (MOTION.md §3)
+function dayNightToggle(event) {
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduced) {
+        applyThemeToggle();
+        return;
+    }
+    var x = event && event.clientX ? event.clientX : window.innerWidth - 34;
+    var y = event && event.clientY ? event.clientY : 34;
+    var radius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+    );
+    var root = document.documentElement;
+    root.setAttribute("data-theme-transition", "");
+    var transition = document.startViewTransition(function () { applyThemeToggle(); });
+    transition.ready.then(function () {
+        root.animate(
+            { clipPath: ["circle(0px at " + x + "px " + y + "px)", "circle(" + radius + "px at " + x + "px " + y + "px)"] },
+            { duration: 500, easing: "cubic-bezier(0.65, 0, 0.35, 1)", pseudoElement: "::view-transition-new(root)" }
+        );
+    });
+    transition.finished.finally(function () { root.removeAttribute("data-theme-transition"); });
 }
 
 function checkDayNight() {

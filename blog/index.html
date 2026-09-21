@@ -37,7 +37,7 @@ permalink: /blog/
     <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
         {% if post.image %}
         <a class="post-card-image-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
-            <img class="post-card-image" itemprop="image" src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy">
+            <img class="post-card-image" itemprop="image" src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" style="view-transition-name:banner-{{ post.slug }}">
         </a>
         {% endif %}
         <div class="post-card-body">

@@ -65,7 +65,7 @@
 </head>
 <body>
     <header>
-        <button onclick="dayNightToggle()" aria-label="Toggle dark mode">Toggle dark mode</button>
+        <button onclick="dayNightToggle(event)" aria-label="Toggle dark mode" data-theme-toggle>Toggle dark mode</button>
         {%- assign blog_current = false -%}
         {%- if page.url == '/blog/' or page.layout == 'post' -%}{%- assign blog_current = true -%}{%- endif -%}
         <nav class="site-nav" aria-label="Primary navigation">
