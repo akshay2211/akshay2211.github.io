@@ -3,7 +3,7 @@ title: "DrawBox Goes Multiplatform"
 date: 2026-06-23
 description: "Why I rewrote my Android-only drawing library for Kotlin Multiplatform, and the part of the rewrite that actually hurt."
 image: /img/blog/drawbox-goes-multiplatform.svg
-image_alt: "Banner for the DrawBox 2.0 KMP rewrite"
+image_alt: "DrawBox 2.0 banner — the shared module split into domain, usecase, viewmodel, and reducer, with a shape-to-element node diagram on a grid"
 author: Akshay Sharma
 tags:
   - kotlin multiplatform

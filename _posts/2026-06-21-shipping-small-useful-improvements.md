@@ -3,7 +3,7 @@ title: "Shipping Small, Useful Improvements"
 date: 2026-06-21
 description: "A short note on keeping product work focused, practical, and easy to validate."
 image: /img/blog/shipping-small-useful-improvements.svg
-image_alt: "Abstract code editor banner for a software blog post"
+image_alt: "A dark code-editor window with red, green, yellow, and blue syntax lines beside a rounded code-brackets icon"
 author: Akshay Sharma
 tags:
   - software craft
