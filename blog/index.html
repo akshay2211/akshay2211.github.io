@@ -28,7 +28,6 @@ permalink: /blog/
 </script>
 <div class="page-shell">
 <section class="blog-hero">
-    <p class="eyebrow">Journal</p>
     <h1>Notes from the build</h1>
     <p class="blog-intro">Thoughts on software craft, architecture, product quality, and the small decisions that make software easier to use.</p>
 </section>
@@ -47,7 +46,7 @@ permalink: /blog/
             </p>
             <h2 class="post-card-title" itemprop="headline"><a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a></h2>
             <p class="post-card-excerpt" itemprop="description">{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
-            <a class="read-more" href="{{ post.url | relative_url }}">Read post <span aria-hidden="true">&rarr;</span></a>
+            <a class="read-more" href="{{ post.url | relative_url }}">Read post</a>
         </div>
     </article>
     {% endfor %}
