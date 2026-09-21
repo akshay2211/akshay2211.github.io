@@ -18,7 +18,7 @@ Source for [ak1.io](https://ak1.io) — my personal site, blog, and project inde
 
 ## Stack
 
-Static Jekyll site. Quicksand for body, Poppins for headings. Vanilla CSS and JS — no build step beyond `jekyll build`. Comments via [Giscus](https://giscus.app).
+Static Jekyll site. Self-hosted Inter (UI), Newsreader (post body), and JetBrains Mono (code); design tokens (Radix Sand + OKLCH accent) in `css/tokens.css`. Vanilla CSS and JS — no build step, bundler, or framework beyond `jekyll build`. Comments via [Giscus](https://giscus.app).
 
 ## Run locally
 
@@ -28,6 +28,18 @@ bundle exec jekyll serve
 ```
 
 Then open <http://127.0.0.1:4000>.
+
+## Forking this as a template
+
+You're welcome to use this as a starting point for your own site. After forking:
+
+1. Replace `CNAME` with your own domain (or delete it to serve from `you.github.io`).
+2. Update `_config.yml` — `title`, `description`, `author`, `social.links`, `url`, and the `google_analytics` / `giscus` blocks (leave those blank to disable).
+3. Swap the content: `_data/projects.yml` (Projects page + homepage + `llms.txt` all read from it), `_posts/`, and `img/`.
+4. Design tokens live in `css/tokens.css` — change colours, type scale, and spacing there rather than in component CSS.
+5. Star counts come from `.github/workflows/repo-stats.yml`, which writes `_data/stats.yml` on a schedule. It runs against your fork's owner automatically.
+
+No build tooling to install beyond Ruby + Bundler.
 
 ---
 

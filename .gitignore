@@ -1,3 +1,9 @@
 /.idea/
 /.jekyll-cache/
 /_site/
+/Gemfile
+/Gemfile.lock
+
+# macOS
+.DS_Store
+**/.DS_Store
