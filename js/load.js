@@ -71,7 +71,7 @@ function checkDayNight() {
 
 // Public "Customize appearance" panel — ink color, corner style, paper
 // grain. All choices are cosmetic and reversible, saved per-browser.
-var APPEARANCE_DEFAULTS = { accent: "cobalt", corners: "sharp", grain: "subtle" };
+var APPEARANCE_DEFAULTS = { accent: "crimson", corners: "round", grain: "subtle" };
 
 function applyAppearance() {
     var body = document.body;

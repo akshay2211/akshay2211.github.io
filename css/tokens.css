@@ -2,8 +2,8 @@
    Design tokens — the single source of truth.
    No raw hex, px font-size, or magic spacing outside this file.
 
-   Colour: a cool neutral grey/white (Radix Sand) scale; a cobalt
-   accent by default, swappable (crimson/indigo/gold) via the
+   Colour: a cool neutral grey/white (Radix Sand) scale; a crimson
+   accent by default, swappable (cobalt/indigo/gold) via the
    Customize widget, plus a coral "seal" reserved for small stamps.
    Type:   Newsreader (serif) carries headlines + post body;
    Inter runs the UI; JetBrains Mono plays the part of typed labels
@@ -55,13 +55,13 @@
     --sand-11:#c2c8d1;
     --sand-12:#f3f4f6;
 
-    /* ----- Accent — cobalt fountain-pen ink, default (tuned for dark) -----
+    /* ----- Accent — crimson fountain-pen ink, default (tuned for dark) -----
        Swappable at runtime via the public "Customize appearance" panel,
        which sets body[data-accent="…"] — see the Accent variants block
-       below. These :root/.light-mode values are the "cobalt" default. */
-    --accent:#4f8eff;
-    --accent-text:#6fa3ff;
-    --accent-contrast:#0b1220;
+       below. These :root/.light-mode values are the "crimson" default. */
+    --accent:#ff5b56;
+    --accent-text:#ff8a85;
+    --accent-contrast:#230907;
 
     /* ----- Decorative-only — vivid coral stamp (used sparingly, not
        swapped by the accent picker — it's a fixed brand mark) ----- */
@@ -128,10 +128,10 @@
     --space-8:4rem;
     --space-9:6rem;
 
-    /* ----- Radii — cut paper, not app chrome: small and square ----- */
-    --radius-sm:2px;
-    --radius-md:3px;
-    --radius-lg:4px;
+    /* ----- Radii — round, default ----- */
+    --radius-sm:6px;
+    --radius-md:10px;
+    --radius-lg:16px;
     --radius-pill:999px;
 
     /* ----- Layout widths ----- */
@@ -179,8 +179,8 @@ body.light-mode{
     --sand-11:#454d59;
     --sand-12:#171a1f;
 
-    --accent:#2454d9;
-    --accent-text:#1d45b8;
+    --accent:#c8291f;
+    --accent-text:#a8211a;
     --accent-contrast:#ffffff;
 
     --seal:#f0453d;
@@ -198,10 +198,10 @@ body.light-mode{
 
 /* ============================================================
    Appearance panel — public, reversible overrides (see js/load.js).
-   Default (no data-accent attr) is the cobalt values above.
+   Default (no data-accent attr) is the crimson values above.
    ============================================================ */
-body[data-accent="crimson"]{--accent:#ff5b56;--accent-text:#ff8a85;--accent-contrast:#230907}
-body.light-mode[data-accent="crimson"]{--accent:#c8291f;--accent-text:#a8211a;--accent-contrast:#ffffff}
+body[data-accent="cobalt"]{--accent:#4f8eff;--accent-text:#6fa3ff;--accent-contrast:#0b1220}
+body.light-mode[data-accent="cobalt"]{--accent:#2454d9;--accent-text:#1d45b8;--accent-contrast:#ffffff}
 
 body[data-accent="indigo"]{--accent:#776bff;--accent-text:#8f85ff;--accent-contrast:#13111f}
 body.light-mode[data-accent="indigo"]{--accent:#4b3df5;--accent-text:#3a2fe0;--accent-contrast:#ffffff}
@@ -209,5 +209,5 @@ body.light-mode[data-accent="indigo"]{--accent:#4b3df5;--accent-text:#3a2fe0;--a
 body[data-accent="gold"]{--accent:#e9c46a;--accent-text:#f0d18a;--accent-contrast:#231c08}
 body.light-mode[data-accent="gold"]{--accent:#a8791e;--accent-text:#8c6516;--accent-contrast:#ffffff}
 
-/* Corners: "Cut" (default, matches --radius-* above) vs "Round" */
-body[data-corners="round"]{--radius-sm:6px;--radius-md:10px;--radius-lg:16px}
+/* Corners: "Round" (default, matches --radius-* above) vs "Cut" */
+body[data-corners="sharp"]{--radius-sm:2px;--radius-md:3px;--radius-lg:4px}
