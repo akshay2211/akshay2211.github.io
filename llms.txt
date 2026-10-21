@@ -5,9 +5,10 @@ sitemap: false
 ---
 # {{ site.author.name }}
 
-> Software architect, open-source maintainer, and Kotlin Multiplatform developer
-> building thoughtful cross-platform apps and libraries for Android, iOS, Web,
-> and Desktop. Writes on software craft, architecture, and the small decisions
+> Software engineer with 11+ years in Android and cross-platform development,
+> open-source maintainer, and Kotlin Multiplatform developer building
+> thoughtful cross-platform apps and libraries for Android, iOS, Web, and
+> Desktop. Writes on software craft, architecture, and the small decisions
 > that make software easier to use.
 
 This file follows the [llms.txt](https://llmstxt.org) convention to give
