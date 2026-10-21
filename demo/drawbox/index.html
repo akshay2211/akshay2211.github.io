@@ -27,6 +27,12 @@ permalink: /demo/drawbox/
                 <span class="demo-launch-note" id="demo-note">~14&nbsp;MB WebAssembly · loads only when you click</span>
             </span>
         </button>
+        <div class="demo-loading" id="demo-loading" aria-hidden="true">
+            <span class="demo-loading-dot"></span>
+            <span class="demo-loading-dot"></span>
+            <span class="demo-loading-dot"></span>
+            <span class="demo-loading-label">Loading WebAssembly&hellip;</span>
+        </div>
     </div>
 
     <section class="demo-meta">
@@ -40,4 +46,5 @@ permalink: /demo/drawbox/
         </div>
     </section>
 </div>
+<script src="{{ '/js/vendor/anime.min.js' | relative_url }}"></script>
 <script src="{{ '/js/demo.js' | relative_url }}"></script>

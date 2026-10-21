@@ -21,7 +21,7 @@ function loadSocialIcons() {
 function applyThemeToggle() {
     document.body.classList.toggle("light-mode");
     if (window.localStorage.getItem("light-mode") == "light") {
-        window.localStorage.clear();
+        window.localStorage.removeItem("light-mode");
     } else {
         window.localStorage.setItem("light-mode", "light");
     }
@@ -69,6 +69,76 @@ function checkDayNight() {
     }
 }
 
+// Public "Customize appearance" panel — ink color, corner style, paper
+// grain. All choices are cosmetic and reversible, saved per-browser.
+var APPEARANCE_DEFAULTS = { accent: "cobalt", corners: "sharp", grain: "subtle" };
+
+function applyAppearance() {
+    var body = document.body;
+    Object.keys(APPEARANCE_DEFAULTS).forEach(function (key) {
+        var value = window.localStorage.getItem("appearance-" + key);
+        var attr = "data-" + key;
+        if (value && value !== APPEARANCE_DEFAULTS[key]) {
+            body.setAttribute(attr, value);
+        } else {
+            body.removeAttribute(attr);
+        }
+    });
+}
+
+function syncAppearancePanelUI() {
+    Object.keys(APPEARANCE_DEFAULTS).forEach(function (key) {
+        var value = window.localStorage.getItem("appearance-" + key) || APPEARANCE_DEFAULTS[key];
+        document.querySelectorAll("[data-" + key + "-option]").forEach(function (btn) {
+            var selected = btn.getAttribute("data-" + key + "-option") === value;
+            btn.setAttribute("aria-pressed", String(selected));
+        });
+    });
+}
+
+function initAppearancePanel() {
+    var toggle = document.querySelector("[data-appearance-toggle]");
+    var panel = document.querySelector("[data-appearance-panel]");
+    if (!toggle || !panel) return;
+
+    var closePanel = function () {
+        panel.setAttribute("hidden", "");
+        toggle.setAttribute("aria-expanded", "false");
+    };
+    var openPanel = function () {
+        panel.removeAttribute("hidden");
+        toggle.setAttribute("aria-expanded", "true");
+    };
+
+    toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (panel.hasAttribute("hidden")) openPanel(); else closePanel();
+    });
+    document.addEventListener("click", function (e) {
+        if (!panel.hasAttribute("hidden") && !panel.contains(e.target) && e.target !== toggle) {
+            closePanel();
+        }
+    });
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !panel.hasAttribute("hidden")) {
+            closePanel();
+            toggle.focus();
+        }
+    });
+
+    panel.addEventListener("click", function (e) {
+        Object.keys(APPEARANCE_DEFAULTS).forEach(function (key) {
+            var btn = e.target.closest("[data-" + key + "-option]");
+            if (!btn) return;
+            window.localStorage.setItem("appearance-" + key, btn.getAttribute("data-" + key + "-option"));
+            applyAppearance();
+            syncAppearancePanelUI();
+        });
+    });
+
+    syncAppearancePanelUI();
+}
+
 function updateHeaderScrollState() {
     var scrolled = window.scrollY > 8;
     document.body.classList.toggle("scrolled", scrolled);
@@ -104,7 +174,9 @@ function initCopyButtons() {
 }
 
 checkDayNight();
+applyAppearance();
 loadSocialIcons();
 updateHeaderScrollState();
 initCopyButtons();
+initAppearancePanel();
 window.addEventListener("scroll", updateHeaderScrollState, { passive: true });

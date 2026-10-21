@@ -40,14 +40,14 @@ main {
     --color-btn-active-border: rgba(29, 30, 33, 0.36);
     --color-btn-selected-bg: #eef0f3;
     --color-btn-primary-text: #ffffff;
-    --color-btn-primary-bg: #b8862f;
+    --color-btn-primary-bg: #4b3df5;
     --color-btn-primary-border: transparent;
-    --color-btn-primary-hover-bg: #a07626;
+    --color-btn-primary-hover-bg: #3a2fe0;
     --color-btn-primary-hover-border: transparent;
-    --color-btn-primary-selected-bg: #8a6620;
+    --color-btn-primary-selected-bg: #2f26c4;
     --color-btn-primary-selected-shadow: none;
     --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.65);
-    --color-btn-primary-disabled-bg: rgba(184, 134, 47, 0.45);
+    --color-btn-primary-disabled-bg: rgba(75, 61, 245, 0.45);
     --color-btn-primary-disabled-border: transparent;
 
     --color-action-list-item-default-hover-bg: rgba(29, 30, 33, 0.05);
@@ -61,16 +61,16 @@ main {
     --color-fg-on-emphasis: #ffffff;
     --color-canvas-default: #ffffff;
     --color-canvas-overlay: #ffffff;
-    --color-canvas-inset: #f6f8fa;
-    --color-canvas-subtle: #f6f8fa;
-    --color-border-default: rgba(29, 30, 33, 0.18);
-    --color-border-muted: rgba(29, 30, 33, 0.10);
-    --color-neutral-muted: rgba(29, 30, 33, 0.18);
-    --color-neutral-subtle: rgba(29, 30, 33, 0.06);
-    --color-accent-fg: #b8862f;
-    --color-accent-emphasis: #b8862f;
-    --color-accent-muted: rgba(184, 134, 47, 0.35);
-    --color-accent-subtle: rgba(184, 134, 47, 0.12);
+    --color-canvas-inset: #f6f7f9;
+    --color-canvas-subtle: #f6f7f9;
+    --color-border-default: rgba(23, 26, 31, 0.18);
+    --color-border-muted: rgba(23, 26, 31, 0.10);
+    --color-neutral-muted: rgba(23, 26, 31, 0.18);
+    --color-neutral-subtle: rgba(23, 26, 31, 0.06);
+    --color-accent-fg: #4b3df5;
+    --color-accent-emphasis: #4b3df5;
+    --color-accent-muted: rgba(75, 61, 245, 0.35);
+    --color-accent-subtle: rgba(75, 61, 245, 0.12);
     --color-success-fg: #1a7f37;
     --color-success-emphasis: #1f883d;
     --color-attention-fg: #9a6700;
@@ -83,17 +83,17 @@ main {
     --color-scale-gray-7: rgba(29, 30, 33, 0.08);
     --color-scale-blue-8: #0c2d6b;
 
-    color: #1d1e21;
-    background-color: #fafafa !important;
-    font-family: 'Quicksand', 'Poppins', sans-serif !important;
+    color: #171a1f;
+    background-color: #eef0f2 !important;
+    font-family: 'Newsreader', Georgia, serif !important;
 }
 
 html, body {
-    background-color: #fafafa !important;
+    background-color: #eef0f2 !important;
 }
 
 main, main .gsc-main {
-    background-color: #fafafa !important;
+    background-color: #eef0f2 !important;
 }
 
 /* Give the comment box and reactions strip a real card surface so they
@@ -104,16 +104,16 @@ main .gsc-comment,
 main .gsc-comments > .gsc-header,
 main .gsc-comments .gsc-header {
     background-color: #ffffff !important;
-    border: 1px solid rgba(29, 30, 33, 0.10);
-    border-radius: 10px;
-    box-shadow: 0 1px 0 rgba(29, 30, 33, 0.02);
+    border: 1px solid rgba(23, 26, 31, 0.10);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(23, 26, 31, 0.02);
 }
 
 main .gsc-reactions { padding: 14px 18px; margin-bottom: 18px; }
 main .gsc-comments > .gsc-header,
 main .gsc-comments .gsc-header { padding: 12px 18px; margin-bottom: 12px; }
 
-main .gsc-comment-box-tabs { background-color: #f6f8fa !important; border-bottom: 1px solid rgba(29, 30, 33, 0.10); }
+main .gsc-comment-box-tabs { background-color: #f6f7f9 !important; border-bottom: 1px solid rgba(23, 26, 31, 0.10); }
 main .gsc-comment-box-textarea { background-color: #ffffff !important; }
 
 main .pagination-loader-container { background-image: none; }

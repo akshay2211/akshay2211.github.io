@@ -2,9 +2,13 @@
    Design tokens — the single source of truth.
    No raw hex, px font-size, or magic spacing outside this file.
 
-   Colour: Radix "Sand" 12-step scales (matched light/dark, contrast
-   guaranteed) for neutrals; a hand-tuned OKLCH gold for the accent.
-   Type:   Inter (UI/headings) + Newsreader (post body) + JetBrains Mono.
+   Concept: "correspondence desk" — real paper, real ink, no plastic,
+   but modern card stock rather than aged kraft.
+   Colour: a cool neutral grey/white paper scale; a vivid indigo ink
+   for interactive accent, a vivid coral reserved for small stamps.
+   Type:   Newsreader (serif) carries headlines + body, like a
+   printed page; JetBrains Mono plays the part of typed labels and
+   stamped meta, the way a typewriter would mark up a letter.
    ============================================================ */
 
 /* ----- Self-hosted fonts (variable, woff2) ----- */
@@ -38,32 +42,56 @@
 }
 
 :root{
-    /* ----- Radix Sand (dark) — neutral scale ----- */
-    --sand-1:#111110;
-    --sand-2:#191918;
-    --sand-3:#222221;
-    --sand-4:#2a2a28;
-    --sand-5:#31312e;
-    --sand-6:#3b3a37;
-    --sand-7:#494844;
-    --sand-8:#62605b;
-    --sand-9:#6f6d66;
-    --sand-10:#7c7b74;
-    --sand-11:#b5b3ad;
-    --sand-12:#eeeeec;
+    /* ----- Cool graphite paper (dark = "card stock under a studio lamp") ----- */
+    --sand-1:#15171c;
+    --sand-2:#1d2027;
+    --sand-3:#252832;
+    --sand-4:#2d323c;
+    --sand-5:#363c47;
+    --sand-6:#434a56;
+    --sand-7:#525a68;
+    --sand-8:#677080;
+    --sand-9:#7e8794;
+    --sand-10:#9ba3af;
+    --sand-11:#c2c8d1;
+    --sand-12:#f3f4f6;
 
-    /* ----- Accent — gold (OKLCH, tuned for dark) ----- */
-    --accent:oklch(0.83 0.11 86);        /* solid gold, ~#e9c46a */
-    --accent-text:oklch(0.86 0.11 88);   /* accent as text on dark */
-    --accent-contrast:#1d1e21;           /* text on an accent fill */
+    /* ----- Accent — cobalt fountain-pen ink, default (tuned for dark) -----
+       Swappable at runtime via the public "Customize appearance" panel,
+       which sets body[data-accent="…"] — see the Accent variants block
+       below. These :root/.light-mode values are the "cobalt" default. */
+    --accent:#4f8eff;
+    --accent-text:#6fa3ff;
+    --accent-contrast:#0b1220;
 
-    /* ----- Elevation ----- */
-    --shadow-card:0 18px 40px -28px rgba(0,0,0,.55);
-    --shadow-avatar:0 24px 60px -32px rgba(0,0,0,.55);
+    /* ----- Decorative-only — vivid coral stamp (used sparingly, not
+       swapped by the accent picker — it's a fixed brand mark) ----- */
+    --seal:#ff6b65;
+    --seal-contrast:#2a0e0c;
 
-    /* ----- Type families ----- */
+    /* ----- Swatch preview dots for the appearance panel (same hex in
+       both themes — these are small UI chips, not page surfaces) ----- */
+    --swatch-cobalt:#2f6fef;
+    --swatch-crimson:#e23e35;
+    --swatch-indigo:#6f62ff;
+    --swatch-gold:#d9a93c;
+
+    /* ----- Elevation: soft ambient + a tight stacked-paper lift ----- */
+    --shadow-card:0 18px 40px -26px rgba(4,5,8,.6);
+    --shadow-avatar:0 20px 48px -28px rgba(4,5,8,.6);
+    --shadow-paper:
+        0 1px 0 var(--sand-1),
+        0 2px 0 var(--sand-4),
+        0 3px 7px rgba(2,3,5,.35),
+        0 16px 30px -18px rgba(2,3,5,.5);
+    --shadow-press:inset 0 1px 2px rgba(0,0,0,.4),inset 0 -1px 0 rgba(255,255,255,.04);
+
+    /* ----- Type families -----
+       Display/body: Newsreader, a printed page. Labels/meta: JetBrains
+       Mono, a typewriter strike. Inter survives only for dense nav chrome. */
     --font-sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
     --font-serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --font-display:'Newsreader',Georgia,'Times New Roman',serif;
     --font-mono:'JetBrains Mono',ui-monospace,'Menlo',monospace;
 
     /* ----- Modular type scale (base 17px, ratio ~1.2) ----- */
@@ -85,10 +113,10 @@
     --leading-serif:1.85;     /* serif body — slightly more */
 
     /* ----- Letter-spacing ----- */
-    --tracking-display:-0.02em;
+    --tracking-display:-0.01em;
     --tracking-tight:-0.01em;
     --tracking-wide:0.02em;
-    --tracking-eyebrow:0.25em;
+    --tracking-eyebrow:0.18em;
 
     /* ----- Spacing scale (4px base) ----- */
     --space-1:0.25rem;
@@ -101,10 +129,10 @@
     --space-8:4rem;
     --space-9:6rem;
 
-    /* ----- Radii ----- */
-    --radius-sm:4px;
-    --radius-md:8px;
-    --radius-lg:14px;
+    /* ----- Radii — cut paper, not app chrome: small and square ----- */
+    --radius-sm:2px;
+    --radius-md:3px;
+    --radius-lg:4px;
     --radius-pill:999px;
 
     /* ----- Layout widths ----- */
@@ -137,25 +165,50 @@ body{
     --card-hover:var(--sand-3);
 }
 
-/* ----- Radix Sand (light) + light-tuned accent ----- */
+/* ----- Cool neutral paper (light = "crisp card stock on a grey desk") ----- */
 body.light-mode{
-    --sand-1:#fdfdfc;
-    --sand-2:#f9f9f8;
-    --sand-3:#f1f0ef;
-    --sand-4:#e9e8e6;
-    --sand-5:#e2e1de;
-    --sand-6:#dad9d6;
-    --sand-7:#cfceca;
-    --sand-8:#bcbbb5;
-    --sand-9:#8d8d86;
-    --sand-10:#82827c;
-    --sand-11:#63635e;
-    --sand-12:#21201c;
+    --sand-1:#eef0f2;
+    --sand-2:#ffffff;
+    --sand-3:#f6f7f9;
+    --sand-4:#edeff2;
+    --sand-5:#e1e4e9;
+    --sand-6:#cbd0d8;
+    --sand-7:#b7bec9;
+    --sand-8:#9aa3b0;
+    --sand-9:#7e8794;
+    --sand-10:#626b78;
+    --sand-11:#454d59;
+    --sand-12:#171a1f;
 
-    --accent:oklch(0.62 0.11 75);        /* darker gold, ~#b8862f, AA on light */
-    --accent-text:oklch(0.58 0.11 72);
-    --accent-contrast:#fdfdfc;
+    --accent:#2454d9;
+    --accent-text:#1d45b8;
+    --accent-contrast:#ffffff;
 
-    --shadow-card:0 18px 40px -30px rgba(29,30,33,.28);
-    --shadow-avatar:0 24px 60px -34px rgba(29,30,33,.30);
+    --seal:#f0453d;
+    --seal-contrast:#ffffff;
+
+    --shadow-card:0 18px 40px -28px rgba(23,26,31,.18);
+    --shadow-avatar:0 20px 48px -30px rgba(23,26,31,.2);
+    --shadow-paper:
+        0 1px 0 var(--sand-1),
+        0 2px 0 var(--sand-4),
+        0 2px 5px rgba(23,26,31,.08),
+        0 14px 26px -18px rgba(23,26,31,.16);
+    --shadow-press:inset 0 1px 2px rgba(23,26,31,.14),inset 0 -1px 0 rgba(255,255,255,.7);
 }
+
+/* ============================================================
+   Appearance panel — public, reversible overrides (see js/load.js).
+   Default (no data-accent attr) is the cobalt values above.
+   ============================================================ */
+body[data-accent="crimson"]{--accent:#ff5b56;--accent-text:#ff8a85;--accent-contrast:#230907}
+body.light-mode[data-accent="crimson"]{--accent:#c8291f;--accent-text:#a8211a;--accent-contrast:#ffffff}
+
+body[data-accent="indigo"]{--accent:#776bff;--accent-text:#8f85ff;--accent-contrast:#13111f}
+body.light-mode[data-accent="indigo"]{--accent:#4b3df5;--accent-text:#3a2fe0;--accent-contrast:#ffffff}
+
+body[data-accent="gold"]{--accent:#e9c46a;--accent-text:#f0d18a;--accent-contrast:#231c08}
+body.light-mode[data-accent="gold"]{--accent:#a8791e;--accent-text:#8c6516;--accent-contrast:#ffffff}
+
+/* Corners: "Cut" (default, matches --radius-* above) vs "Round" */
+body[data-corners="round"]{--radius-sm:6px;--radius-md:10px;--radius-lg:16px}
