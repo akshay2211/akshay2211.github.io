@@ -2,13 +2,12 @@
    Design tokens — the single source of truth.
    No raw hex, px font-size, or magic spacing outside this file.
 
-   Concept: "correspondence desk" — real paper, real ink, no plastic,
-   but modern card stock rather than aged kraft.
-   Colour: a cool neutral grey/white paper scale; a vivid indigo ink
-   for interactive accent, a vivid coral reserved for small stamps.
-   Type:   Newsreader (serif) carries headlines + body, like a
-   printed page; JetBrains Mono plays the part of typed labels and
-   stamped meta, the way a typewriter would mark up a letter.
+   Colour: a cool neutral grey/white (Radix Sand) scale; a cobalt
+   accent by default, swappable (crimson/indigo/gold) via the
+   Customize widget, plus a coral "seal" reserved for small stamps.
+   Type:   Newsreader (serif) carries headlines + post body;
+   Inter runs the UI; JetBrains Mono plays the part of typed labels
+   and stamped meta, the way a typewriter would mark up a letter.
    ============================================================ */
 
 /* ----- Self-hosted fonts (variable, woff2) ----- */
