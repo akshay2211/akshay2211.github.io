@@ -3,7 +3,7 @@
 # Refreshed on a schedule so the Projects page shows live stars and a
 # "last updated" maintenance signal with zero client-side JS.
 DrawBox:
-  stars: 427
+  stars: 426
   forks: 49
   pushed_at: "2026-10-05T06:14:28Z"
 universal-context-pipeline:
@@ -23,7 +23,7 @@ BubbleTabBar:
   forks: 71
   pushed_at: "2023-01-24T07:38:11Z"
 Paper:
-  stars: 178
+  stars: 179
   forks: 27
   pushed_at: "2026-06-21T09:29:41Z"
 NYTimes-Compose:
