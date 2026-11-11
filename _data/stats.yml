@@ -3,7 +3,7 @@
 # Refreshed on a schedule so the Projects page shows live stars and a
 # "last updated" maintenance signal with zero client-side JS.
 DrawBox:
-  stars: 428
+  stars: 427
   forks: 49
   pushed_at: "2026-11-09T06:40:49Z"
 universal-context-pipeline:
