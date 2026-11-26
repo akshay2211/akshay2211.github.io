@@ -24,16 +24,23 @@ layout: default
         <div class="post-content" id="post-content" itemprop="articleBody">
             {{ content }}
         </div>
+        {% if page.repo %}{% include repo-star-cta.html %}{% endif %}
         {% if page.tags and page.tags.size > 0 %}
         <ul class="post-tags" aria-label="Topics">
             {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
         </ul>
         {% endif %}
+        <footer class="post-author" aria-label="About the author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <p class="eyebrow">Author</p>
+            <meta itemprop="name" content="{{ page.author | default: site.author.name }}">
+            <a class="post-author-card" href="https://github.com/akshay2211" rel="author noopener" target="_blank" aria-label="{{ site.author.name }} on GitHub" itemprop="url">
+                <img src="https://ak1.io/statsvg_rs/profile.svg" alt="Live GitHub profile card for {{ site.author.name }} — stats, top languages and pinned repositories" loading="lazy" decoding="async">
+            </a>
+        </footer>
         <aside class="post-hire" aria-label="Work with Redigit">
             <p class="post-hire-text">This is the kind of work I do for a living. <strong>Redigit</strong> builds Kotlin Multiplatform and Android products for teams — cross-platform migrations, libraries, and the hard parts of the shared module.</p>
             <a class="post-hire-cta" href="{{ '/hire/' | relative_url }}">Work with Redigit</a>
         </aside>
-        <meta itemprop="author" content="{{ page.author | default: site.author.name }}">
         <meta itemprop="dateModified" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
     </article>
     <aside class="post-toc" aria-label="On this page">

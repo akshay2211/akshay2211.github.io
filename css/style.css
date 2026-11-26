@@ -1311,6 +1311,20 @@ html[data-theme-transition]::view-transition-new(root){
 .hire-cta:hover{transform:translateY(-1px)}
 .hire-cta:active{transform:translateY(1px);box-shadow:0 0 0 color-mix(in srgb,var(--accent) 60%,black),inset 0 2px 4px rgba(0,0,0,.35)}
 
+/* Author card — mirrors the hero image frame */
+.post-author{margin:var(--space-7) 0 0}
+.post-author-card{display:block;line-height:0}
+.post-author-card img{
+    width:100%;
+    height:auto;
+    background:var(--card-hover);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-paper);
+    transition:transform var(--dur-fast) var(--ease-out);
+}
+.post-author-card:hover img{transform:translateY(-2px)}
+
 /* End-of-post CTA */
 .post-hire{
     margin:var(--space-7) 0 0;

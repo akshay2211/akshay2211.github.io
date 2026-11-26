@@ -5,6 +5,8 @@ description: "Why I built UCP, a local-first MCP server in Rust that turns notes
 image: /img/blog/universal-context-pipeline.svg
 image_alt: "UCP banner — a local-first MCP server grounding LLMs in your own files"
 author: Akshay Sharma
+repo: akshay2211/universal-context-pipeline
+repo_cta: "If **UCP** ends up grounding your Claude or Cursor sessions, a star on GitHub is the easiest way to say thanks — and it helps other folks in privacy-sensitive workflows find it."
 tags:
   - rust
   - mcp
@@ -99,18 +101,3 @@ Restart Claude Desktop. Ask it something grounded in your indexed folders. The r
 If you want the conversation-memory unlock too, export your Claude history from `claude.ai/settings/data-privacy-controls` and run `ucp-local ingest-conversations ~/Downloads/claude-export/conversations.json`. Every future Claude session now has access to every past one. That, more than anything else UCP does, is the part I didn't realise I wanted until I had it.
 
 The full README, MCP configs for Cursor and LM Studio, and the positioning doc are all on [GitHub](https://github.com/akshay2211/universal-context-pipeline). v0.1 is on [crates.io](https://crates.io/crates/ucp-local) as `ucp-local`.
-
-<aside class="repo-star-cta">
-  <div class="repo-star-cta-text">
-    <p class="eyebrow">Found this useful?</p>
-    <p>If <strong>UCP</strong> ends up grounding your Claude or Cursor sessions, a star on GitHub is the easiest way to say thanks — and it helps other folks in privacy-sensitive workflows find it.</p>
-  </div>
-  <a class="repo-star-button" href="https://github.com/akshay2211/universal-context-pipeline" target="_blank" rel="noopener" aria-label="Star universal-context-pipeline on GitHub">
-    <span class="repo-star-button-action">
-      <svg class="gh-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-      <svg class="star-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
-      Star
-    </span>
-    <span class="repo-star-button-repo">akshay2211/universal-context-pipeline</span>
-  </a>
-</aside>

@@ -5,6 +5,8 @@ description: "Building Foyer, a text-first Android launcher whose assistant work
 image: /img/blog/foyer-quiet-launcher.svg
 image_alt: "Foyer banner — a text-first home screen beside the assistant pipeline: deterministic router, local LLM, structured action"
 author: Akshay Sharma
+repo: akshay2211/Foyer
+repo_cta: "If **Foyer** ends up replacing your home screen — or its offline assistant sparks an idea — a star on GitHub is the easiest way to say thanks, and it helps other folks looking for a quieter phone find it."
 tags:
   - android
   - launcher
